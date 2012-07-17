@@ -5,6 +5,6 @@
   <Application.ApplicationLifetimeObjects>
     <!--Required object that handles lifetime events for the application-->
     <shell:PhoneApplicationService Launching="Application_Launching" Closing="Application_Closing" Activated="Application_Activated" Deactivated="Application_Deactivated" />
-    <analytics:GoogleAnalyticsService WebPropertyId="UA-12345-6" xmlns:analytics="clr-namespace:WindowsPhoneFanDkApp.Analytics" />
+    <analytics:GoogleAnalyticsService WebPropertyId="UA-32634394-2" xmlns:analytics="clr-namespace:WindowsPhoneFanDkApp.Analytics" />
   </Application.ApplicationLifetimeObjects>
 </Application>

@@ -16,17 +16,10 @@ namespace WindowsPhoneFanDkApp.Analytics
         public GoogleAnalyticsService()
         {
             _googleAnalytics = new GoogleAnalytics();
-            _googleAnalytics.CustomVariables.Add(new PropertyValue
-                                                     {PropertyName = "Device ID", Value = AnalyticsProperties.DeviceId});
-            _googleAnalytics.CustomVariables.Add(new PropertyValue
-                                                     {
-                                                         PropertyName = "Application Version",
-                                                         Value = AnalyticsProperties.ApplicationVersion
-                                                     });
-            _googleAnalytics.CustomVariables.Add(new PropertyValue
-                                                     {PropertyName = "Device OS", Value = AnalyticsProperties.OsVersion});
-            _googleAnalytics.CustomVariables.Add(new PropertyValue
-                                                     {PropertyName = "Device", Value = AnalyticsProperties.Device});
+            _googleAnalytics.CustomVariables.Add(new PropertyValue { PropertyName = "Device ID", Value = AnalyticsProperties.DeviceId });
+            _googleAnalytics.CustomVariables.Add(new PropertyValue { PropertyName = "Application Version", Value = AnalyticsProperties.ApplicationVersion });
+            _googleAnalytics.CustomVariables.Add(new PropertyValue { PropertyName = "Device OS", Value = AnalyticsProperties.OsVersion });
+            _googleAnalytics.CustomVariables.Add(new PropertyValue { PropertyName = "Device", Value = AnalyticsProperties.Device});
             _innerService = new WebAnalyticsService
                                 {
                                     IsPageTrackingEnabled = false,

@@ -10,15 +10,22 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
+using WindowsPhoneFanDkApp.Analytics;
 
 namespace WindowsPhoneFanDkApp
 {
-    public partial class MainPage : PhoneApplicationPage
+    public partial class MainPageView : PhoneApplicationPage
     {
         // Constructor
-        public MainPage()
+        public MainPageView()
         {
             InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            AnalyticsHelper.TrackPageView("MainPageView");
         }
     }
 }
