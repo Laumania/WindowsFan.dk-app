@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Net;
 using System.Windows;
@@ -10,8 +11,10 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using AgFx;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using WindowsPhoneFanDkApp.Common;
 
 namespace WindowsPhoneFanDkApp
 {
@@ -57,6 +60,20 @@ namespace WindowsPhoneFanDkApp
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
 
+            //Setup Global error handling for data access
+            DataManager.Current.UnhandledError += (sender, args) =>
+            {
+                Deployment.Current.Dispatcher.BeginInvoke(() => HandleUnhandledException(args.ExceptionObject));
+                args.Handled = true;
+            };
+
+            DataManager.Current.PropertyChanged += delegate(object sender, PropertyChangedEventArgs args)
+            {
+                if (args.PropertyName == "IsLoading")
+                {
+                    GlobalProgressIndicator.Current.IsLoading = DataManager.Current.IsLoading;
+                }
+            };
         }
 
         // Code to execute when the application is launching (eg, from Start)
@@ -103,6 +120,19 @@ namespace WindowsPhoneFanDkApp
             }
         }
 
+        private void HandleUnhandledException(Exception exception)
+        {
+
+#if DEBUG
+            MessageBox.Show(exception.Message);
+#else
+            MessageBox.Show(
+                "Det ser ud til der er sket en fejl. Prøv venligst igen.",
+                "Ups!",
+                MessageBoxButton.OK);
+#endif
+        }
+
         #region Phone application initialization
 
         // Avoid double-initialization
@@ -121,6 +151,8 @@ namespace WindowsPhoneFanDkApp
 
             // Handle navigation failures
             RootFrame.NavigationFailed += RootFrame_NavigationFailed;
+
+            GlobalProgressIndicator.Current.Initialize(RootFrame);
 
             // Ensure we don't initialize again
             phoneApplicationInitialized = true;
