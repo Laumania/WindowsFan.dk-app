@@ -19,6 +19,8 @@ Even people who are not active in the development of this app could learn someth
 WindowsPhoneFan.dk is a danish site, written in danish, so why are all this text in english? Well, when I code I like things to be in english, both readme's like this, but also variables in code, bug reports, issues etc. 
 It just makes everything easier in the long run to have a common language when you code. At least that's what I think. So everything will be in english, except the actual language inside the app of cause - it will be in danish :)
 
+**Stay tuned**
+
 More stuff will be added to this readme telling about how we are going to do this. Right now I'm just setting the stage and putting up the base project that we will work from.
 
 Stay tuned :)
