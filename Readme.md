@@ -1,24 +1,35 @@
 ## WindowsPhoneFan.dk app for Windows Phone
 
 ### What is WindowsPhoneFan.dk?
-WindowsPhoneFan.dk is a danish community site with news, guides etc. relevant for danish Windows Phone users.
+[WindowsPhoneFan.dk](http://www.windowsphonefan.dk/) is a danish community site with news, guides etc. relevant for danish Windows Phone users.
 
-The site can be found here: [www.windowsphonefan.dk](http://www.windowsphonefan.dk/), [www.wpfan.dk](http://www.wpfan.dk/) or [www.windowsfan.dk](http://www.windowsfan.dk/)
 
-### The Project
-The idea with this project is to let the community create and develop a Windows Phone app for accessing WindowsPhoneFan.dk.
+### The new WindowsPhoneFan.dk app
+Since November 2011 [we have had an app for access](http://www.windowsphone.com/da-dk/apps/e0b8225e-3a1c-4831-a2d6-8ef11bea9b76) WindowsPhoneFan.dk.   
+Sadly this app isn't working that well, especially with danish chars like æ, ø and å and I can see that it is often crashing.   
+The current app is based on this [Starter Kit](https://github.com/ChrisKoenig/Windows-Phone-Starter-Kit-for-WordPress).
 
-Currently there is an app for accessing the site, but it's not optimal, especially when handling danish characters like æ, ø and å.
-The current version is based on this [Starter Kit](https://github.com/ChrisKoenig/Windows-Phone-Starter-Kit-for-WordPress).
+Due to the fact that the current app isn't working that well, I decided to code up a new one - from scratch this time.   
 
-I think it would be very cool and fun to try and work together with some of you guys on this app, which is the main reason I created this project.
-Even people who are not active in the development of this app could learn something from following along.
+I were planning to just develop this app by myself, but some weeks ago I got the idea that it would be awesome to do it together with the community, similar to what [I had experienced earlier this year](http://www.laumania.net/post/2012/04/07/Code52-social-coding-and-DVCS.aspx) by following some of the Code52 projects.
 
-### Language - english?
-WindowsPhoneFan.dk is a danish site, written in danish, so why are all the text here on Github in english? Well, when I code I like things to be in english, both readme's like this, but also variables in code, bug reports, issues etc. 
-It just makes everything easier in the long run to have a common language when you code. At least that's what I think. So everything will be in english, except the actual language inside the app of cause - it will be in danish :)
+So here we are on Github with a project that will hopefully become an awesome WindowsPhoneFan.dk app very soon!
 
-### Join the project
+Let's get starting!
+
+### Joining the project
+Basically everybody can join and participate in this project. We need developers, graphical dudes, people who can come with awesome ideas for features, beta testers etc.  
+
+To keep things moving along and to help organize and structure the process, we will use the following tools.
 
 * [Trello Board](https://trello.com/board/windowsphonefan-dk-app/5008483f1b92f0641b4380ec) - add ideas, or claim an idea and start working on it!
-* [JabbR Chatroom](http://jabbr.net/#/rooms/wpfandk) - discuss things in real-time with people all over the world!
+* [Forum](http://www.windowsphonefan.dk/forum/viewforum.php?f=17) - discuss things with other people on the project!
+
+
+### Prerequisites
+If you are a developer you need the following to be able to build and run the app:
+
+* Some version of Visual Studio 2010 (Express, Premium, Ultimate, you-name-it).
+* Latest [Windows Phone SDK 7.1](http://create.msdn.com/en-us/resources/downloads)
+
+That should be enough to get started. Now what you have to do is Fork the repo, claim a task you will work on in Trello and start working. When you are done create a Pull Request so I can take in your work into the project.
