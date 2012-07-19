@@ -9,8 +9,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using AgFx;
 using Microsoft.Phone.Controls;
 using WindowsPhoneFanDkApp.Analytics;
+using WindowsPhoneFanDkApp.ViewModels;
 
 namespace WindowsPhoneFanDkApp
 {
@@ -20,6 +22,11 @@ namespace WindowsPhoneFanDkApp
         public MainPageView()
         {
             InitializeComponent();
+
+            Loaded += delegate(object sender, RoutedEventArgs args)
+                          {
+                              this.DataContext = DataManager.Current.Load<RecentPostsViewModel>(-1);
+                          };
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
