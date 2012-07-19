@@ -13,6 +13,7 @@ namespace WindowsPhoneFanDkApp.Common
 {
     public class Constants
     {
+        //See the API documentation in the wiki: https://github.com/Laumania/WindowsPhoneFan.dk-app/wiki/API
         public const string BaseApiPath = "http://www.windowsphonefan.dk/api/";
     }
 }
