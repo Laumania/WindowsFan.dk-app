@@ -25,6 +25,7 @@ To keep things moving along and to help organize and structure the process, we w
 * [Trello Board](https://trello.com/board/windowsphonefan-dk-app/5008483f1b92f0641b4380ec) - add ideas, or claim an idea and start working on it!
 * [Forum](http://www.windowsphonefan.dk/forum/viewforum.php?f=17) - discuss things with other people on the project!
 
+[For more information visit the wiki](https://github.com/Laumania/WindowsPhoneFan.dk-app/wiki)
 
 ### Prerequisites
 If you are a developer you need the following to be able to build and run the app:
