@@ -46,14 +46,21 @@ namespace WindowsPhoneFanDkApp.ViewModels
             }
         }
 
-        private ObservableCollection<Post> _posts;
+        private readonly ObservableCollection<Post> _posts = new ObservableCollection<Post>();
         [JsonProperty("posts")]
         public ObservableCollection<Post> Posts
         {
             get { return _posts; }
             set 
             { 
-                _posts = value; 
+                if (_posts != null)
+                {
+                    _posts.Clear();
+                    foreach (var report in value)
+                    {
+                        _posts.Add(report);
+                    }
+                }
                 RaisePropertyChanged("Posts");
             }
         }
