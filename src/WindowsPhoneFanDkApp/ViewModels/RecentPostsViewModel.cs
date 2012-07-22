@@ -1,33 +1,41 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.IO;
+using System.Net;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Ink;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Shapes;
 using AgFx;
-using GalaSoft.MvvmLight;
 using Newtonsoft.Json;
 using WindowsPhoneFanDkApp.Common;
 using WindowsPhoneFanDkApp.Data;
-using WindowsPhoneFanDkApp.Api.Models;
+using WindowsPhoneFanDkApp.Models;
 
 namespace WindowsPhoneFanDkApp.ViewModels
 {
-    public class RecentPostsViewModel : ViewModelBase
+    [CachePolicy(CachePolicy.NoCache)]
+    public class RecentPostsViewModel : ModelItemBase<DummyLoadContext>
     {
-        private RecentPosts _recentPosts;
-
+        //AgFx needs and empty contructor on ModelItems/ViewModels
         public RecentPostsViewModel()
         {
-            _recentPosts = DataManager.Current.Load<RecentPosts>(-1); // We have no identifiers for this object.
-            _recentPosts.PropertyChanged += RecentPostsOnPropertyChanged;
+            
         }
 
-        private void RecentPostsOnPropertyChanged(object sender, PropertyChangedEventArgs propertyChangedEventArgs)
-        {
-            Status = _recentPosts.Status.ToString();
-            Posts = _recentPosts.Posts;
+        public RecentPostsViewModel(int identifier) :
+            base(new DummyLoadContext(identifier)) 
+        { 
+            
         }
+
 
         private string _status;
+        [JsonProperty("status")]
         public string Status
         {
             get { return _status; }
@@ -39,6 +47,7 @@ namespace WindowsPhoneFanDkApp.ViewModels
         }
 
         private readonly ObservableCollection<Post> _posts = new ObservableCollection<Post>();
+        [JsonProperty("posts")]
         public ObservableCollection<Post> Posts
         {
             get { return _posts; }
@@ -53,6 +62,28 @@ namespace WindowsPhoneFanDkApp.ViewModels
                     }
                 }
                 RaisePropertyChanged("Posts");
+            }
+        }
+
+        public class RecentPostsViewModelDataLoader : IDataLoader<DummyLoadContext>
+        {
+            private const string recentPostUriFormat = Constants.BaseApiPath + "get_recent_posts/";
+
+            public LoadRequest GetLoadRequest(DummyLoadContext loadContext, Type objectType)
+            {
+                string uri = recentPostUriFormat;
+                return new WebLoadRequest(loadContext, new Uri(uri));
+            }
+
+            public object Deserialize(DummyLoadContext loadContext, Type objectType, Stream stream)
+            {
+                var reader = new StreamReader(stream);
+                var response = reader.ReadToEnd();
+
+                var viewModel = JsonConvert.DeserializeObject<RecentPostsViewModel>(response);
+                viewModel.LoadContext = loadContext;
+
+                return viewModel;
             }
         }
     }
