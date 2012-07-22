@@ -22,11 +22,6 @@ namespace WindowsPhoneFanDkApp
         public MainPageView()
         {
             InitializeComponent();
-
-            Loaded += delegate(object sender, RoutedEventArgs args)
-                          {
-                              ContentPanel.DataContext = DataManager.Current.Load<RecentPostsViewModel>(-1);
-                          };
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)

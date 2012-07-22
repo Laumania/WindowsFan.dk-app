@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsPhoneFanDkApp", "WindowsPhoneFanDkApp\WindowsPhoneFanDkApp.csproj", "{9A0944E5-F78C-4C06-8AA3-625083ABF8CE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsPhoneFanDkApp.Api", "WindowsPhoneFanDkApp.Api\WindowsPhoneFanDkApp.Api.csproj", "{84FE6C50-1140-4CB3-93F7-5B731BD11EC5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{9A0944E5-F78C-4C06-8AA3-625083ABF8CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A0944E5-F78C-4C06-8AA3-625083ABF8CE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9A0944E5-F78C-4C06-8AA3-625083ABF8CE}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{84FE6C50-1140-4CB3-93F7-5B731BD11EC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84FE6C50-1140-4CB3-93F7-5B731BD11EC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84FE6C50-1140-4CB3-93F7-5B731BD11EC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84FE6C50-1140-4CB3-93F7-5B731BD11EC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
