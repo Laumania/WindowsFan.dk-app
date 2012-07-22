@@ -1,62 +1,43 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.Net;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Ink;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using AgFx;
-using Newtonsoft.Json;
-using WindowsPhoneFanDkApp.Common;
-using WindowsPhoneFanDkApp.Data;
-using WindowsPhoneFanDkApp.Models;
+using GalaSoft.MvvmLight;
+using WindowsPhoneFanDkApp.Api.Models;
 
 namespace WindowsPhoneFanDkApp.ViewModels
 {
-    [CachePolicy(CachePolicy.NoCache)]
-    public class RecentPostsViewModel : ModelItemBase<DummyLoadContext>
+    public class RecentPostsViewModel : ViewModelBase
     {
-        //AgFx needs and empty contructor on ModelItems/ViewModels
-        public RecentPostsViewModel()
-        {
-            
-        }
-
-        public RecentPostsViewModel(int identifier) :
-            base(new DummyLoadContext(identifier)) 
-        { 
-            
-        }
-
+        private readonly ObservableCollection<Post> _posts = new ObservableCollection<Post>();
+        private readonly RecentPosts _recentPosts;
 
         private string _status;
-        [JsonProperty("status")]
+
+        public RecentPostsViewModel()
+        {
+            _recentPosts = DataManager.Current.Load<RecentPosts>(-1); // We have no identifiers for this object.
+            _recentPosts.PropertyChanged += RecentPostsOnPropertyChanged;
+        }
+
         public string Status
         {
             get { return _status; }
-            set 
-            { 
+            set
+            {
                 _status = value;
                 RaisePropertyChanged("Status");
             }
         }
 
-        private readonly ObservableCollection<Post> _posts = new ObservableCollection<Post>();
-        [JsonProperty("posts")]
         public ObservableCollection<Post> Posts
         {
             get { return _posts; }
-            set 
-            { 
+            set
+            {
                 if (_posts != null)
                 {
                     _posts.Clear();
-                    foreach (var report in value)
+                    foreach (Post report in value)
                     {
                         _posts.Add(report);
                     }
@@ -65,26 +46,10 @@ namespace WindowsPhoneFanDkApp.ViewModels
             }
         }
 
-        public class RecentPostsViewModelDataLoader : IDataLoader<DummyLoadContext>
+        private void RecentPostsOnPropertyChanged(object sender, PropertyChangedEventArgs propertyChangedEventArgs)
         {
-            private const string recentPostUriFormat = Constants.BaseApiPath + "get_recent_posts/";
-
-            public LoadRequest GetLoadRequest(DummyLoadContext loadContext, Type objectType)
-            {
-                string uri = recentPostUriFormat;
-                return new WebLoadRequest(loadContext, new Uri(uri));
-            }
-
-            public object Deserialize(DummyLoadContext loadContext, Type objectType, Stream stream)
-            {
-                var reader = new StreamReader(stream);
-                var response = reader.ReadToEnd();
-
-                var viewModel = JsonConvert.DeserializeObject<RecentPostsViewModel>(response);
-                viewModel.LoadContext = loadContext;
-
-                return viewModel;
-            }
+            Status = _recentPosts.Status.ToString();
+            Posts = _recentPosts.Posts;
         }
     }
 }
