@@ -146,8 +146,7 @@ namespace WindowsPhoneFanDkApp
 
             // Create the frame but don't set it as RootVisual yet; this allows the splash
             // screen to remain active until the application is ready to render.
-            // Set bacground to transparent in order to get smoother animations.
-            RootFrame = new TransitionFrame { Background = new SolidColorBrush(Colors.Transparent) };
+            RootFrame = new TransitionFrame();
             RootFrame.Navigated += CompleteInitializePhoneApplication;
 
             // Handle navigation failures
