@@ -75,7 +75,7 @@
                         <DataTemplate>
                             <StackPanel>
                                 <TextBlock Text="{Binding Title}" />
-                                <controls:HtmlTextBlock Height="120" Html="{Binding Content}" />
+                                <controls:HtmlTextBlock Html="{Binding Content}" />
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>

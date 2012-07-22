@@ -115,7 +115,11 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\GlobalProgressIndicator.cs" />
-    <Compile Include="Controls\HTMLTextBlock.cs" />
+    <Compile Include="Controls\HtmlTextBlock.cs" />
+    <Page Include="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Compile Include="ViewModels\RecentPostsViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
