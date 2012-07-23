@@ -57,7 +57,7 @@
                         <DataTemplate>
                             <StackPanel>
                                 <TextBlock Text="{Binding Title}" />
-                                <TextBlock Text="{Binding Content}" TextWrapping="Wrap"  />
+                                <!--<TextBlock Text="{Binding Content}" TextWrapping="Wrap"  />-->
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>

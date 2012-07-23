@@ -25,7 +25,7 @@ namespace WindowsPhoneFanDkApp
 
             Loaded += delegate(object sender, RoutedEventArgs args)
                           {
-                              this.DataContext = DataManager.Current.Load<RecentPostsViewModel>(-1);
+                              ContentPanel.DataContext = DataManager.Current.Load<RecentPostsViewModel>(-1);
                           };
         }
 
