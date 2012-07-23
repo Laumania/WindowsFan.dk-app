@@ -538,8 +538,7 @@ namespace WindowsPhoneFanDkApp.Controls
                     break;
                 case "image":
                 case "img":
-                    // We won't need to insert images.
-                    //AppendImage(node, paragraph);
+                    AppendImage(node, paragraph);
                     break;
                 default:
                     Debug.WriteLine(String.Format("Element {0} not implemented", node.Name));
