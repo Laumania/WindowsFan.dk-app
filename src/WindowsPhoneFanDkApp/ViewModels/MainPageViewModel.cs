@@ -15,8 +15,11 @@ namespace WindowsPhoneFanDkApp.ViewModels
 
         public MainPageViewModel()
         {
-            _recentPosts = DataManager.Current.Load<RecentPosts>(-1); // We have no identifiers for this object.
-            _recentPosts.PropertyChanged += RecentPostsOnPropertyChanged;
+            if (!IsInDesignMode)
+            {
+                _recentPosts = DataManager.Current.Load<RecentPosts>(-1); // We have no identifiers for this object.
+                _recentPosts.PropertyChanged += RecentPostsOnPropertyChanged;
+            }
         }
 
         public string Status
