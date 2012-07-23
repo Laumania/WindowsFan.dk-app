@@ -45,7 +45,6 @@ namespace WindowsPhoneFanDkApp.ViewModels
                         _posts.Add(report);
                     }
                 }
-                RaisePropertyChanged("Posts");
             }
         }
 
