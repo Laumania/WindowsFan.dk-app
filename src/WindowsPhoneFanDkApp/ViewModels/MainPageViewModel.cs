@@ -6,14 +6,14 @@ using WindowsPhoneFanDkApp.Api.Models;
 
 namespace WindowsPhoneFanDkApp.ViewModels
 {
-    public class RecentPostsViewModel : ViewModelBase
+    public class MainPageViewModel : ViewModelBase
     {
         private readonly ObservableCollection<Post> _posts = new ObservableCollection<Post>();
         private readonly RecentPosts _recentPosts;
 
         private string _status;
 
-        public RecentPostsViewModel()
+        public MainPageViewModel()
         {
             _recentPosts = DataManager.Current.Load<RecentPosts>(-1); // We have no identifiers for this object.
             _recentPosts.PropertyChanged += RecentPostsOnPropertyChanged;

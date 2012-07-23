@@ -19,7 +19,7 @@
                             mc:Ignorable="d">
 
     <phone:PhoneApplicationPage.DataContext>
-        <viewmodels:RecentPostsViewModel />
+        <viewmodels:MainPageViewModel />
     </phone:PhoneApplicationPage.DataContext>
 
     <toolkit:TransitionService.NavigationInTransition>
