@@ -5,4 +5,10 @@ namespace WindowsPhoneFanDkApp.Api.Models
         ok,
         publish,
     }
+
+    public enum CommentStatus
+    {
+        open,
+        closed
+    }
 }

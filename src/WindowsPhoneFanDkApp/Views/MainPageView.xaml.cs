@@ -29,5 +29,11 @@ namespace WindowsPhoneFanDkApp
             base.OnNavigatedTo(e);
             AnalyticsHelper.TrackPageView("MainPageView");
         }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //navigate to post.
+
+        }
     }
 }

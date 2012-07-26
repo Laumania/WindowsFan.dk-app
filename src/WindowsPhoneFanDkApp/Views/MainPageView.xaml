@@ -62,12 +62,12 @@
             <ListBox Grid.Row="1"
                      ItemsSource="{Binding Posts}"
                      HorizontalAlignment="Stretch" 
-    				 VerticalAlignment="Stretch" >
+    				 VerticalAlignment="Stretch" SelectionChanged="ListBox_SelectionChanged" >
                 <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <controls:HtmlTextBlock Html="{Binding Title}" />
-                            <controls:HtmlTextBlock Html="{Binding Content}" />
+                    <DataTemplate>                       
+                        <StackPanel Orientation="Horizontal" Margin="20">
+                            <Image Source="{Binding Thumbnail}"  MaxWidth="150"/>                            
+                            <controls:HtmlTextBlock Html="{Binding Title}" Width="300"/>                            
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
