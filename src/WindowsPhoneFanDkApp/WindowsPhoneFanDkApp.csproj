@@ -116,6 +116,10 @@
     </Compile>
     <Compile Include="Common\GlobalProgressIndicator.cs" />
     <Compile Include="Controls\HtmlTextBlock.cs" />
+    <Compile Include="Controls\PostInfoConverter.cs" />
+    <Compile Include="Views\PostPageView.xaml.cs">
+      <DependentUpon>PostPageView.xaml</DependentUpon>
+    </Compile>
     <Page Include="Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -125,6 +129,10 @@
       <DependentUpon>MainPageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Page Include="Views\PostPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

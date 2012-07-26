@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="Data\RecentPostsLoadContext.cs" />
+    <Compile Include="Models\Attachment.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\RecentPosts.cs" />

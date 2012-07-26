@@ -46,6 +46,19 @@ namespace WindowsPhoneFanDkApp.Api.Models
             set { thumbnail = value; }
         }
 
+        //public string Image
+        //{
+        //    get
+        //    {
+        //        if (Attachments.Count > 0 && Attachments[0] != null)
+        //            return Attachments[0].Url;
+        //        return string.Empty;
+        //    }
+        //}
+
+        //[JsonProperty("attachments")]
+        //public List<Attachment> Attachments { get; set; }
+
         [JsonProperty("author")]
         public Author Author { get; set; }
 
@@ -57,6 +70,11 @@ namespace WindowsPhoneFanDkApp.Api.Models
 
         [JsonProperty("comments")]
         public List<Comment> Comments { get; set; }
+
+        public string PostSignature
+        {
+            get { return Author.Name + " " + Date; }
+        }
 
         
     }
