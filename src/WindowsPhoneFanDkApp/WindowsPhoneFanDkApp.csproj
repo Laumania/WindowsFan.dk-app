@@ -73,6 +73,7 @@
       <HintPath>..\packages\MSAF.GoogleAnalytics.1.5.4.1\lib\sl4-wp71\MC.Phone.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone.Controls, Version=7.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Phone.Controls.Toolkit">
       <HintPath>..\packages\SilverlightToolkitWP.4.2012.6.25\lib\sl4-windowsphone71\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
     </Reference>
@@ -115,8 +116,12 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\GlobalProgressIndicator.cs" />
+    <Compile Include="Controls\CommentNameConverter.cs" />
     <Compile Include="Controls\HtmlTextBlock.cs" />
     <Compile Include="Controls\PostInfoConverter.cs" />
+    <Compile Include="Views\PostPageViewV2.xaml.cs">
+      <DependentUpon>PostPageViewV2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PostPageView.xaml.cs">
       <DependentUpon>PostPageView.xaml</DependentUpon>
     </Compile>
@@ -129,6 +134,10 @@
       <DependentUpon>MainPageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Page Include="Views\PostPageViewV2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PostPageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -150,6 +159,9 @@
     <None Include="Properties\WMAppManifest.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\appbar.addcomment.rest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

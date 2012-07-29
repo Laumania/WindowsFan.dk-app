@@ -46,19 +46,6 @@ namespace WindowsPhoneFanDkApp.Api.Models
             set { thumbnail = value; }
         }
 
-        //public string Image
-        //{
-        //    get
-        //    {
-        //        if (Attachments.Count > 0 && Attachments[0] != null)
-        //            return Attachments[0].Url;
-        //        return string.Empty;
-        //    }
-        //}
-
-        //[JsonProperty("attachments")]
-        //public List<Attachment> Attachments { get; set; }
-
         [JsonProperty("author")]
         public Author Author { get; set; }
 
