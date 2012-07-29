@@ -168,17 +168,6 @@ namespace WindowsPhoneFanDkApp.Controls
                     navigationEvent(this, new NavigationEventArgs(link, link.CommandParameter as Uri));
                 }
             }
-
-            //fix for navigation from links in html
-            if(sender is Hyperlink)
-            {
-                var task = new Microsoft.Phone.Tasks.WebBrowserTask
-                {
-                    URL = ((Hyperlink)e.OriginalSource).CommandParameter.ToString()
-                };
-
-                task.Show();
-            }
         }
 
         #endregion
