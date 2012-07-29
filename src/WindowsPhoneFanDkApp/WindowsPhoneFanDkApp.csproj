@@ -119,8 +119,8 @@
     <Compile Include="Controls\CommentNameConverter.cs" />
     <Compile Include="Controls\HtmlTextBlock.cs" />
     <Compile Include="Controls\PostInfoConverter.cs" />
-    <Compile Include="Views\PostPageViewV2.xaml.cs">
-      <DependentUpon>PostPageViewV2.xaml</DependentUpon>
+    <Compile Include="Views\PostCommentView.xaml.cs">
+      <DependentUpon>PostCommentView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PostPageView.xaml.cs">
       <DependentUpon>PostPageView.xaml</DependentUpon>
@@ -134,7 +134,7 @@
       <DependentUpon>MainPageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Page Include="Views\PostPageViewV2.xaml">
+    <Page Include="Views\PostCommentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

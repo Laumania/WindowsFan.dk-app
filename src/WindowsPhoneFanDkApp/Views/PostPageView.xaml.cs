@@ -24,6 +24,19 @@ namespace WindowsPhoneFanDkApp.Views
 
             Post post = PhoneApplicationService.Current.State["selectedPost"] as Post;
             this.DataContext = post;
+
+            //navigate back to start screen, if we cant find the post
+            if (post == null)
+                NavigationService.GoBack();
+
+            //check if we are allowed to comment on post.
+            if (post != null && post.CommentStatus == CommentStatus.open)
+                ApplicationBar.IsVisible = true;
+        }
+
+        private void btnAddComment_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Views/PostCommentView.xaml", UriKind.Relative));
         }
     }
 }

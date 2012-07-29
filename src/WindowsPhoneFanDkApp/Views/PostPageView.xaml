@@ -10,7 +10,7 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
-    mc:Ignorable="d" d:DesignHeight="696" d:DesignWidth="480"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
     shell:SystemTray.IsVisible="True">
 
 
@@ -59,8 +59,8 @@
  
     <!--Sample code showing usage of ApplicationBar-->
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="false">
-            <shell:ApplicationBarIconButton IconUri="/Content/appbar.addcomment.rest.png" Text="Kommentér"/>
+        <shell:ApplicationBar IsVisible="false" IsMenuEnabled="false">
+            <shell:ApplicationBarIconButton IconUri="/Content/appbar.addcomment.rest.png" Text="Kommentér" x:Name="btnAddComment" Click="btnAddComment_Click"/>
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
                 <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
