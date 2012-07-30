@@ -120,6 +120,9 @@
     <Compile Include="Controls\ControlFinder.cs" />
     <Compile Include="Controls\HtmlTextBlock.cs" />
     <Compile Include="Controls\PostInfoConverter.cs" />
+    <Compile Include="Views\BrowserView.xaml.cs">
+      <DependentUpon>BrowserView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PostCommentView.xaml.cs">
       <DependentUpon>PostCommentView.xaml</DependentUpon>
     </Compile>
@@ -135,6 +138,10 @@
       <DependentUpon>MainPageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Page Include="Views\BrowserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PostCommentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
