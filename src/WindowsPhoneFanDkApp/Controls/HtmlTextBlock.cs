@@ -168,6 +168,7 @@ namespace WindowsPhoneFanDkApp.Controls
                     navigationEvent(this, new NavigationEventArgs(link, link.CommandParameter as Uri));
                 }
             }
+
         }
 
         #endregion

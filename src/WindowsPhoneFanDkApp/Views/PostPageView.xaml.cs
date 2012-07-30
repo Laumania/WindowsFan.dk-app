@@ -21,7 +21,10 @@ namespace WindowsPhoneFanDkApp.Views
         public PostPageView()
         {
             InitializeComponent();
+        }
 
+        private void Init()
+        {
             Post post = PhoneApplicationService.Current.State["selectedPost"] as Post;
             this.DataContext = post;
 
@@ -33,10 +36,18 @@ namespace WindowsPhoneFanDkApp.Views
             if (post != null && post.CommentStatus == CommentStatus.open)
                 ApplicationBar.IsVisible = true;
         }
+       
 
         private void btnAddComment_Click(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/Views/PostCommentView.xaml", UriKind.Relative));
         }
+
+        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            Init();
+        }
+        
     }
 }

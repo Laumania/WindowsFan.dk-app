@@ -33,11 +33,11 @@
                     <TextBlock Text="Email" Width="225" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
-                    <TextBox Width="228" />
-                    <TextBox Width="228" />
+                    <TextBox Width="228" Name="txtName" />
+                    <TextBox Width="228" Name="txtEmail"/>
                 </StackPanel>
-                <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" MinHeight="350"/>
-                <Button Content="Indsend kommentar" />
+                <TextBox AcceptsReturn="true"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" MinHeight="350" Name="txtContent"/>
+                <Button Content="Indsend kommentar" Name="btnSubmitComment" Click="btnSubmitComment_Click" />
             </StackPanel>
         </Grid>
     </Grid>

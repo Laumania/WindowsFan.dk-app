@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using AgFx;
 using Newtonsoft.Json;
 
@@ -12,6 +14,7 @@ namespace WindowsPhoneFanDkApp.Api.Models
     public class Post : ModelItemBase
     {
         private string thumbnail;
+
         public Post()
         {
             //AgFx needs and empty contructor on ModelItems/ViewModels.
@@ -56,13 +59,12 @@ namespace WindowsPhoneFanDkApp.Api.Models
         public CommentStatus CommentStatus { get; set; }
 
         [JsonProperty("comments")]
-        public List<Comment> Comments { get; set; }
+        public ObservableCollection<Comment> Comments { get; set; }
 
         public string PostSignature
         {
             get { return Author.Name + " " + Date; }
         }
 
-        
     }
 }

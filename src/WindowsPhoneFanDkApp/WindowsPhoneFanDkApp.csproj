@@ -162,6 +162,7 @@
     <Content Include="Content\appbar.addcomment.rest.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Content\appbar.sync.rest.png" />
     <Content Include="Content\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
