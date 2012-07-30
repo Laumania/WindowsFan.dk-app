@@ -33,14 +33,6 @@ namespace WindowsPhoneFanDkApp.Views
             UIState(true);
         }
 
-        private void UIState(bool enabled)
-        {
-            txtContent.IsEnabled = enabled;
-            txtName.IsEnabled = enabled;
-            txtEmail.IsEnabled = enabled;
-            btnSubmitComment.IsEnabled = enabled;
-        }
-
         private void btnSubmitComment_Click(object sender, RoutedEventArgs e)
         {
             if (IsStringNullEmptyOrWhiteSpace(txtContent.Text) || IsStringNullEmptyOrWhiteSpace(txtName.Text))
@@ -132,12 +124,21 @@ namespace WindowsPhoneFanDkApp.Views
             });
         }
 
+        //for showing loading bar
         private void ProgressBarLoading(bool isLoading)
         {
             Deployment.Current.Dispatcher.BeginInvoke(() =>
                                                           {
                                                               GlobalProgressIndicator.Current.IsLoading = isLoading;
                                                           });
+        }
+
+        private void UIState(bool enabled)
+        {
+            txtContent.IsEnabled = enabled;
+            txtName.IsEnabled = enabled;
+            txtEmail.IsEnabled = enabled;
+            btnSubmitComment.IsEnabled = enabled;
         }
         #endregion
     }

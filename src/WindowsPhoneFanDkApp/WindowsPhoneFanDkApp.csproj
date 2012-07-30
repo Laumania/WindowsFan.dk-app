@@ -117,6 +117,7 @@
     </Compile>
     <Compile Include="Common\GlobalProgressIndicator.cs" />
     <Compile Include="Controls\CommentNameConverter.cs" />
+    <Compile Include="Controls\ControlFinder.cs" />
     <Compile Include="Controls\HtmlTextBlock.cs" />
     <Compile Include="Controls\PostInfoConverter.cs" />
     <Compile Include="Views\PostCommentView.xaml.cs">

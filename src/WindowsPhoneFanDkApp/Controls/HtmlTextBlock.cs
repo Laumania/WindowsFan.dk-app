@@ -47,6 +47,7 @@ using System.Net;
 using System.Windows.Media;
 using System.Windows.Navigation;
 using System.Windows.Media.Imaging;
+using WindowsPhoneFanDkApp.Views;
 
 namespace WindowsPhoneFanDkApp.Controls
 {
@@ -166,6 +167,16 @@ namespace WindowsPhoneFanDkApp.Controls
                 if (link != null && link.CommandParameter != null)
                 {
                     navigationEvent(this, new NavigationEventArgs(link, link.CommandParameter as Uri));
+                }
+            }
+            
+            //fix for navigating from hyperlink clicks
+            if(sender is Hyperlink)
+            {
+                PostPageView page = ControlFinder.FindParent<PostPageView>(this);
+                if(page != null)
+                {
+                    page.Browse(((Hyperlink)e.OriginalSource).CommandParameter.ToString());
                 }
             }
 

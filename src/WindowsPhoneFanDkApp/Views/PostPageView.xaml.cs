@@ -48,6 +48,17 @@ namespace WindowsPhoneFanDkApp.Views
             base.OnNavigatedTo(e);
             Init();
         }
+
+        //required for the hyperlink fix / hack.
+        public void Browse(string url)
+        {
+            var task = new Microsoft.Phone.Tasks.WebBrowserTask
+            {
+                Uri = new Uri(url, UriKind.Absolute)
+            };
+
+            task.Show();
+        }
         
     }
 }
