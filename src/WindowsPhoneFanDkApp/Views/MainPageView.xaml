@@ -21,6 +21,10 @@
     <phone:PhoneApplicationPage.DataContext>
         <viewmodels:MainPageViewModel />
     </phone:PhoneApplicationPage.DataContext>
+    
+    <phone:PhoneApplicationPage.Resources>
+        <controls:PostInfoConverter x:Name="authorConverter" />
+    </phone:PhoneApplicationPage.Resources>
 
     <toolkit:TransitionService.NavigationInTransition>
         <toolkit:NavigationInTransition>
@@ -52,22 +56,25 @@
         <!--  ContentPanel - place additional content here  -->
         <Grid x:Name="ContentPanel"
               Grid.Row="0"
-              Margin="12,0,12,0">
+              Margin="0,0,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <TextBlock Grid.Row="0" Text="{Binding Status, StringFormat='Status: \{0\}'}" />
-            <ListBox Grid.Row="1"
+            <ListBox Name="listPosts" Grid.Row="1"
                      ItemsSource="{Binding Posts}"
                      HorizontalAlignment="Stretch" 
-    				 VerticalAlignment="Stretch" >
+    				 VerticalAlignment="Stretch" SelectionChanged="ListBox_SelectionChanged" >
                 <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <controls:HtmlTextBlock Html="{Binding Title}" />
-                            <controls:HtmlTextBlock Html="{Binding Content}" />
+                    <DataTemplate>                       
+                        <StackPanel Orientation="Horizontal" Margin="20">
+                            <Image Source="{Binding Thumbnail}"  MaxWidth="150"/>
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Stretch">
+                                <controls:HtmlTextBlock Html="{Binding Title}" Width="300"/>
+                                <TextBlock Text="{Binding Path=PostSignature, Converter={StaticResource authorConverter}}" FontSize="8" FontWeight="ExtraLight" FontStyle="Italic" Foreground="Gray" Margin="10,0,0,0" VerticalAlignment="Bottom"/>                                
+                            </StackPanel>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

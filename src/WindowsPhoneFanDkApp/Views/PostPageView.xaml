@@ -1,0 +1,71 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="WindowsPhoneFanDkApp.Views.PostPageView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:WindowsPhoneFanDkApp.Controls" FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True">
+
+
+    <phone:PhoneApplicationPage.Resources>
+        <controls:PostInfoConverter x:Name="authorConverter" />
+        <controls:CommentNameConverter x:Name="commentNameConverter" />
+        
+        <Style x:Name="StyleinfoLight" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="8" />
+            <Setter Property="FontWeight" Value="ExtraLight" />
+            <Setter Property="FontStyle" Value="Italic" />
+            <Setter Property="Foreground" Value="Gray"  /> 
+            <Setter Property="Margin" Value="10,0,10,0" />
+        </Style>
+    </phone:PhoneApplicationPage.Resources>
+    
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+
+        <ScrollViewer>
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Vertical" Margin="12" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <controls:HtmlTextBlock Html="{Binding Title}"/>
+                    <TextBlock Text="{Binding Path=PostSignature, Converter={StaticResource authorConverter}}" Style="{StaticResource StyleinfoLight}" />
+                    <controls:HtmlTextBlock Html="{Binding Content}" Margin="0,-170,0,0" />
+                </StackPanel>
+                <ItemsControl ItemsSource="{Binding Comments}" Margin="12" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" Background="#50D3D3D3" Margin="0,10,0,10">
+                                <controls:HtmlTextBlock Html="{Binding Name, Converter={StaticResource commentNameConverter}}" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding Date}" Style="{StaticResource StyleinfoLight}" />
+                                <controls:HtmlTextBlock Html="{Binding Content}" Margin="0,10,0,0"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
+
+
+
+
+    </Grid>
+ 
+    <!--Sample code showing usage of ApplicationBar-->
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="false" IsMenuEnabled="false">
+            <shell:ApplicationBarIconButton IconUri="/Content/appbar.addcomment.rest.png" Text="Kommentér" x:Name="btnAddComment" Click="btnAddComment_Click"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
+                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>
