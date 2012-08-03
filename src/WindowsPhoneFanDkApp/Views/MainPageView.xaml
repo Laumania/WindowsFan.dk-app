@@ -62,8 +62,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-
-            <TextBlock Grid.Row="0" Text="{Binding Status, StringFormat='Status: \{0\}'}" />
+            
             <ListBox Name="listPosts" Grid.Row="1"
                      ItemsSource="{Binding Posts}"
                      HorizontalAlignment="Stretch" 
