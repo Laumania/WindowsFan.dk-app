@@ -47,6 +47,7 @@ using System.Net;
 using System.Windows.Media;
 using System.Windows.Navigation;
 using System.Windows.Media.Imaging;
+using WindowsPhoneFanDkApp.Common;
 using WindowsPhoneFanDkApp.Views;
 
 namespace WindowsPhoneFanDkApp.Controls

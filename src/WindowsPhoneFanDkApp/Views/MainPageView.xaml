@@ -8,7 +8,7 @@
                             xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
                             xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
                             xmlns:viewmodels="clr-namespace:WindowsPhoneFanDkApp.ViewModels"
-                            d:DesignHeight="768"
+                            xmlns:Converts="clr-namespace:WindowsPhoneFanDkApp.Converts" d:DesignHeight="768"
                             d:DesignWidth="480"
                             FontFamily="{StaticResource PhoneFontFamilyNormal}"
                             FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -24,7 +24,7 @@
     </phone:PhoneApplicationPage.DataContext>
     
     <phone:PhoneApplicationPage.Resources>
-        <controls:PostInfoConverter x:Name="authorConverter" />
+        <Converts:PostInfoConverter x:Name="authorConverter" />
     </phone:PhoneApplicationPage.Resources>
 
     <toolkit:TransitionService.NavigationInTransition>
