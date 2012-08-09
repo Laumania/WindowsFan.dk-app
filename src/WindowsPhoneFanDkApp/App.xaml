@@ -5,9 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
-             mc:Ignorable="d">
+             xmlns:converters="clr-namespace:WindowsPhoneFanDkApp.Converts" mc:Ignorable="d">
     <!--  Application Resources  -->
     <Application.Resources>
+        <converters:ImageUrlWithCacheConverter x:Key="ImageCacheConverter" />
     </Application.Resources>
     <Application.ApplicationLifetimeObjects>
         <!--  Required object that handles lifetime events for the application  -->

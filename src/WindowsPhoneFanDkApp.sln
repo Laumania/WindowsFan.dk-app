@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsPhoneFanDkApp", "Win
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsPhoneFanDkApp.Api", "WindowsPhoneFanDkApp.Api\WindowsPhoneFanDkApp.Api.csproj", "{84FE6C50-1140-4CB3-93F7-5B731BD11EC5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{A93DD0B2-734B-4281-9D21-9882705BAA20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KawagoeToolkit", "Dependencies\Kawagoe.1.1\KawagoeToolkit\KawagoeToolkit.csproj", "{0CDD0FA7-D5A1-47F4-B874-9C7FE4CA9257}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,8 +25,15 @@ Global
 		{84FE6C50-1140-4CB3-93F7-5B731BD11EC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84FE6C50-1140-4CB3-93F7-5B731BD11EC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84FE6C50-1140-4CB3-93F7-5B731BD11EC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CDD0FA7-D5A1-47F4-B874-9C7FE4CA9257}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CDD0FA7-D5A1-47F4-B874-9C7FE4CA9257}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CDD0FA7-D5A1-47F4-B874-9C7FE4CA9257}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CDD0FA7-D5A1-47F4-B874-9C7FE4CA9257}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0CDD0FA7-D5A1-47F4-B874-9C7FE4CA9257} = {A93DD0B2-734B-4281-9D21-9882705BAA20}
 	EndGlobalSection
 EndGlobal

@@ -119,6 +119,7 @@
     <Compile Include="Converts\CommentNameConverter.cs" />
     <Compile Include="Common\ControlFinder.cs" />
     <Compile Include="Controls\HtmlTextBlock.cs" />
+    <Compile Include="Converts\ImageUrlWithCacheConverter.cs" />
     <Compile Include="Converts\PostInfoConverter.cs" />
     <Compile Include="Views\BrowserView.xaml.cs">
       <DependentUpon>BrowserView.xaml</DependentUpon>
@@ -185,6 +186,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\Dependencies\Kawagoe.1.1\KawagoeToolkit\KawagoeToolkit.csproj">
+      <Project>{0CDD0FA7-D5A1-47F4-B874-9C7FE4CA9257}</Project>
+      <Name>KawagoeToolkit</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WindowsPhoneFanDkApp.Api\WindowsPhoneFanDkApp.Api.csproj">
       <Project>{84FE6C50-1140-4CB3-93F7-5B731BD11EC5}</Project>
       <Name>WindowsPhoneFanDkApp.Api</Name>

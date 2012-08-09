@@ -70,7 +70,7 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>                       
                         <StackPanel Orientation="Horizontal" Margin="20">
-                            <Image Source="{Binding Thumbnail}"  MaxWidth="150"/>
+                            <Image Source="{Binding Thumbnail, Converter={StaticResource ImageCacheConverter}}"  MaxWidth="150"/>
                             <StackPanel Orientation="Vertical" VerticalAlignment="Stretch">
                                 <controls:HtmlTextBlock Html="{Binding Title}" Width="300"/>
                                 <TextBlock Text="{Binding Path=PostSignature, Converter={StaticResource authorConverter}}" FontSize="8" FontWeight="ExtraLight" FontStyle="Italic" Foreground="Gray" Margin="10,0,0,0" VerticalAlignment="Bottom"/>                                
