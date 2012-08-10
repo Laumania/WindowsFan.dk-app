@@ -38,11 +38,6 @@ namespace WindowsPhoneFanDkApp.Api.Models
         {
             get
             {
-                if(string.IsNullOrEmpty(thumbnail) || string.IsNullOrWhiteSpace(thumbnail))
-                {
-                    return "/WindowsPhoneFanDkApp;component/Content/PostThumb.png";
-                }
-
                 return thumbnail;
             }
 
