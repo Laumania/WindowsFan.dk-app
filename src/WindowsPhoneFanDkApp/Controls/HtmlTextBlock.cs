@@ -553,10 +553,88 @@ namespace WindowsPhoneFanDkApp.Controls
                 case "img":
                     AppendImage(node, paragraph);
                     break;
+                case "iframe":
+                    AppendIframe(node, paragraph);
+                    break;
                 default:
                     Debug.WriteLine(String.Format("Element {0} not implemented", node.Name));
                     break;
             }
+        }
+
+        private void AppendIframe(HtmlNode node, Paragraph paragraph)
+        {
+
+            #region Youtube Iframe
+            if (node.Attributes["src"] != null && node.Attributes["src"].Value.Contains("youtube"))
+            {
+                //scrape youtube Id
+                #region ID Scraping
+                string link = node.Attributes["src"].Value;
+                string youtubeID = link.Remove(0, link.IndexOf("embed/") + 6);
+                youtubeID = youtubeID.Remove(youtubeID.IndexOf("?"), youtubeID.Length - youtubeID.IndexOf("?"));
+                #endregion
+
+
+                InlineUIContainer inlineContainer = new InlineUIContainer();
+                Image image = new Image();
+                if (node.Attributes["src"] != null)
+                {
+                    
+                    BitmapImage bitmap = new BitmapImage(new Uri("http://img.youtube.com/vi/"+ youtubeID + "/0.jpg"));
+                    bitmap.CreateOptions = BitmapCreateOptions.None;
+                    bitmap.ImageOpened += delegate
+                                              {
+                                                  double bitmapWidth = bitmap.PixelWidth;
+                                                  double actualWidth = currentRtb.ActualWidth;
+                                                  image.Source = bitmap;
+                                                  if (bitmapWidth < actualWidth)
+                                                  {
+                                                      image.Width = bitmapWidth;
+                                                  }
+                                                  else
+                                                  {
+                                                      image.Width = 436;
+                                                  }
+                                                  
+                                              };
+
+                    
+                }
+
+                Image playbtn = new Image() { Source = new BitmapImage(new Uri("/WindowsPhoneFanDkApp;component/Content/play_overlay_icon.png", UriKind.Relative))};
+                playbtn.Height = 200;
+                Canvas.SetLeft(playbtn, 50);
+                Canvas.SetTop(playbtn, 70);
+
+                Canvas canvas = new Canvas();
+                canvas.Children.Add(image);
+                canvas.Children.Add(playbtn);
+                canvas.Height = 360;
+
+                inlineContainer.Child = canvas;
+                image.Stretch = Stretch.Uniform;
+                canvas.MouseLeftButtonUp += (sender, args) =>
+                                               {
+                                                   PostPageView page = ControlFinder.FindParent<PostPageView>(this);
+                                                   if (page != null)
+                                                   {
+                                                       page.Browse("http://m.youtube.com/watch?v=" + youtubeID + "&feature=player_embedded");
+                                                       //page.Browse(node.Attributes["src"].Value);
+                                                   }
+                                               };
+
+                paragraph.Inlines.Add(inlineContainer);
+
+                AppendChildren(node, paragraph, null);
+            }
+            #endregion
+
+            else
+            {
+                Debug.WriteLine(String.Format("Element {0} not implemented", node.Name));
+            }
+            
         }
 
         private void AppendLineBreak(HtmlNode node, Paragraph paragraph, Span span, bool traverse)
