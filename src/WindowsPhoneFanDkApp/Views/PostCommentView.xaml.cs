@@ -50,7 +50,6 @@ namespace WindowsPhoneFanDkApp.Views
                             txtName.Text = xmlreader.ReadInnerXml();
 
                             xmlreader.ReadToFollowing("Email");
-                            //xmlreader.MoveToFirstAttribute();
                             txtEmail.Text = xmlreader.ReadInnerXml();
                         }
                     }
