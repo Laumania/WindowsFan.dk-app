@@ -32,6 +32,7 @@ namespace WindowsPhoneFanDkApp.Api.Models
         [JsonProperty("category")]
         public Category Category { get; set; }
 
+
         [JsonProperty("posts")]
         public ObservableCollection<Post> Posts { get; set; }
 

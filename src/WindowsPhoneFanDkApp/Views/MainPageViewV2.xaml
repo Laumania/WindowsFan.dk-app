@@ -19,11 +19,20 @@
 
 
     <phone:PhoneApplicationPage.DataContext>
-        <viewmodels:MainPageViewModel />
+        <viewmodels:MainPageViewModel />        
     </phone:PhoneApplicationPage.DataContext>
 
     <phone:PhoneApplicationPage.Resources>
         <Converts:PostInfoConverter x:Name="authorConverter" />
+        <DataTemplate x:Name="pivotListboxTemplate">  
+                <StackPanel Orientation="Horizontal" Margin="20">
+                    <Image Source="{Binding Thumbnail, Converter={StaticResource ImageCacheConverter}}"  MaxWidth="150"/>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Stretch">
+                        <Controls:HtmlTextBlock Html="{Binding Title}" Width="300"/>
+                        <TextBlock Text="{Binding Path=PostSignature, Converter={StaticResource authorConverter}}" FontSize="8" FontWeight="ExtraLight" FontStyle="Italic" Foreground="Gray" Margin="10,0,0,0" VerticalAlignment="Bottom"/>
+                    </StackPanel>
+                </StackPanel>
+        </DataTemplate>
     </phone:PhoneApplicationPage.Resources>
 
     <toolkit:TransitionService.NavigationInTransition>
@@ -58,10 +67,11 @@
             <TextBlock Text="fan" Height="45" FontSize="30"  HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="sdf" />
         </StackPanel>
         <!--Pivot Control-->
-        <controls:Pivot Name="pivMain" Title="" Grid.Row="1" Margin="0,-30,0,0">
+        <controls:Pivot Name="pivMain" Title="" Grid.Row="1" Margin="0,-30,0,0">            
+        
             <!--Pivot item one-->
             <controls:PivotItem Header="news">
-                <Grid x:Name="newz" Background="Transparent">
+                <Grid Background="Transparent">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
@@ -87,7 +97,7 @@
                             </ListBox.ItemTemplate>
                         </ListBox>
                     </Grid>
-                </Grid>
+                </Grid> 
             </controls:PivotItem>
 
             <!--Pivot item two-->
