@@ -170,6 +170,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Fonts\Harabara.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml" />
