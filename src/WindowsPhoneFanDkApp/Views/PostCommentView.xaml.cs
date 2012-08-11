@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.IO.IsolatedStorage;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Windows;
+using System.Xml;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using WindowsPhoneFanDkApp.Api.Models;
@@ -31,6 +33,32 @@ namespace WindowsPhoneFanDkApp.Views
 
             //enable UIelements
             UIState(true);
+
+
+            try
+            {
+                //read out values for name and email - if they exists
+                using (IsolatedStorageFile myIsolatedStorage = IsolatedStorageFile.GetUserStoreForApplication())
+                {
+                    IsolatedStorageFileStream isoFileStream = myIsolatedStorage.OpenFile("RecentUser.xml", FileMode.Open);
+                    using (StreamReader reader = new StreamReader(isoFileStream))
+                    {
+                        string xml = reader.ReadToEnd();
+                        using (XmlReader xmlreader = XmlReader.Create(new StringReader(xml)))
+                        {
+                            xmlreader.ReadToFollowing("Name");
+                            txtName.Text = xmlreader.ReadInnerXml();
+
+                            xmlreader.ReadToFollowing("Email");
+                            txtEmail.Text = xmlreader.ReadInnerXml();
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                Debug.WriteLine("No RecentUser.xml found!");
+            }
         }
 
         private void btnSubmitComment_Click(object sender, RoutedEventArgs e)
@@ -45,6 +73,34 @@ namespace WindowsPhoneFanDkApp.Views
                 ShowMessage("Indtast valid email.");
                 return;
             }
+
+
+            //write name and email to local storage as xml
+            using (IsolatedStorageFile myIsolatedStorage = IsolatedStorageFile.GetUserStoreForApplication())
+            {
+                using (IsolatedStorageFileStream isoStream = new IsolatedStorageFileStream("RecentUser.xml", FileMode.Create, myIsolatedStorage))
+                {
+                    XmlWriterSettings settings = new XmlWriterSettings();
+                    settings.Indent = true;
+                    using (XmlWriter writer = XmlWriter.Create(isoStream, settings))
+                    {
+
+                        writer.WriteStartElement("u", "user", "urn:user");
+                        writer.WriteStartElement("Name", txtName.Text);
+                        writer.WriteString(txtName.Text);
+                        writer.WriteEndElement();
+                        writer.WriteStartElement("Email", "");
+                        writer.WriteString(txtEmail.Text);
+                        writer.WriteEndElement();
+                        // Ends the document
+                        writer.WriteEndDocument();
+                        // Write the XML to the file.
+                        writer.Flush();
+                    }
+                }
+            }
+
+
 
             //lock up UIelements so no dobbeltclick / dobbelpost can occur.
             UIState(false);

@@ -21,12 +21,12 @@ namespace WindowsPhoneFanDkApp.Converts
         {
             if(value != null)
             {
-                var source = new Uri(value.ToString(), UriKind.Absolute);
-                return ImageCache.Default.Get(source); ;
+                var source = new Uri(value.ToString(), UriKind.RelativeOrAbsolute);
+                return ImageCache.Default.Get(source);
             }
             else
             {
-                throw new ArgumentNullException();
+                return "/WindowsPhoneFanDkApp;component/Content/PostThumb.png";
             }
         }
 
