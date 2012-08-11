@@ -1,20 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 using AgFx;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using WindowsPhoneFanDkApp.Analytics;
 using WindowsPhoneFanDkApp.Api.Models;
-using WindowsPhoneFanDkApp.ViewModels;
 
 namespace WindowsPhoneFanDkApp.Views
 {
@@ -29,10 +21,12 @@ namespace WindowsPhoneFanDkApp.Views
 
             //added 2 test category feeds to mainscreen
             //TODO: implement dynamic logic from settings
+            feedIds.Enqueue(374);
             feedIds.Enqueue(3);
-            feedIds.Enqueue(313);
+            feedIds.Enqueue(12);
 
-            
+            InitFeed();
+
         }
 
         void currentLoadedFeed_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -50,6 +44,7 @@ namespace WindowsPhoneFanDkApp.Views
                 
                 pivMain.Items.Insert(1, item);
             }
+            pivMain.UpdateLayout();
             InitFeed();
         }
 
@@ -59,9 +54,6 @@ namespace WindowsPhoneFanDkApp.Views
             AnalyticsHelper.TrackPageView("MainPageView");
             listPosts.SelectedIndex = -1;
             listcategories.SelectedIndex = -1;
-
-            InitFeed();
-            
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -97,6 +89,7 @@ namespace WindowsPhoneFanDkApp.Views
 
         private void InitFeed()
         {
+
             if (feedIds.Count > 0)
             {
                 int feedID = feedIds.Dequeue();
@@ -105,9 +98,9 @@ namespace WindowsPhoneFanDkApp.Views
                 {
                     currentLoadedFeed = DataManager.Current.Load<CategoryWithPosts>(feedID);
                     currentLoadedFeed.PropertyChanged += currentLoadedFeed_PropertyChanged;
-                } 
+                }
             }
         }
-
+       
     }
 }

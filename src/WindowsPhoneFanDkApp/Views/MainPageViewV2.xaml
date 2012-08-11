@@ -67,7 +67,7 @@
             <TextBlock Text="fan" Height="45" FontSize="30"  HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="sdf" />
         </StackPanel>
         <!--Pivot Control-->
-        <controls:Pivot Name="pivMain" Title="" Grid.Row="1" Margin="0,-30,0,0">            
+        <controls:Pivot Name="pivMain" Title="" Grid.Row="1" Margin="0,-30,0,0" >       
         
             <!--Pivot item one-->
             <controls:PivotItem Header="news">
