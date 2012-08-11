@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Windows;
@@ -43,7 +44,15 @@ namespace WindowsPhoneFanDkApp.Views
 
         void categoryWithPosts_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            listPosts.ItemsSource = categoryWithPosts.Posts;
+            try
+            {
+                listPosts.ItemsSource = categoryWithPosts.Posts;
+                txtHeader.Html = categoryWithPosts.Category.Title;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

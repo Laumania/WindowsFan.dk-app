@@ -56,7 +56,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-
+            <controls:HtmlTextBlock x:Name="txtHeader" FontSize="{StaticResource PhoneFontSizeLarge}" />
             <ListBox Name="listPosts" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="ListBox_SelectionChanged" >
                 <ListBox.ItemTemplate>
                     <DataTemplate>
