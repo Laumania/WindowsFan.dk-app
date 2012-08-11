@@ -56,5 +56,10 @@ namespace WindowsPhoneFanDkApp.Views
 
         }
 
+        private void menuSettings_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/WindowsPhoneFanDkApp;component/Views/SettingsPageView.xaml", UriKind.RelativeOrAbsolute));
+        }
+
     }
 }

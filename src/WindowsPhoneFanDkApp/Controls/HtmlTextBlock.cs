@@ -572,7 +572,8 @@ namespace WindowsPhoneFanDkApp.Controls
                 #region ID Scraping
                 string link = node.Attributes["src"].Value;
                 string youtubeID = link.Remove(0, link.IndexOf("embed/") + 6);
-                youtubeID = youtubeID.Remove(youtubeID.IndexOf("?"), youtubeID.Length - youtubeID.IndexOf("?"));
+                if (youtubeID.IndexOf("?") > 0)
+                    youtubeID = youtubeID.Remove(youtubeID.IndexOf("?"), youtubeID.Length - youtubeID.IndexOf("?"));
                 #endregion
 
 
