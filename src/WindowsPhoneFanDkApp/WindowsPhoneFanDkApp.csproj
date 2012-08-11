@@ -133,6 +133,9 @@
     <Compile Include="Views\PostPageView.xaml.cs">
       <DependentUpon>PostPageView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PostsByCatPageView.xaml.cs">
+      <DependentUpon>PostsByCatPageView.xaml</DependentUpon>
+    </Compile>
     <Page Include="Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -155,6 +158,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PostPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PostsByCatPageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

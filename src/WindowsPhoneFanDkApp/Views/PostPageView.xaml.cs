@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using WindowsPhoneFanDkApp.Analytics;
 using WindowsPhoneFanDkApp.Api.Models;
 
 namespace WindowsPhoneFanDkApp.Views
@@ -35,6 +36,8 @@ namespace WindowsPhoneFanDkApp.Views
             //check if we are allowed to comment on post.
             if (post != null && post.CommentStatus == CommentStatus.open)
                 ApplicationBar.IsVisible = true;
+
+            AnalyticsHelper.TrackPageView("PostPageView");
         }
        
 

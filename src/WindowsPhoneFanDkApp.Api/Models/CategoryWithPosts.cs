@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Net;
 using System.Windows;
@@ -27,6 +28,12 @@ namespace WindowsPhoneFanDkApp.Api.Models
 
         [JsonProperty("status")]
         public Status Status { get; set; }
+
+        [JsonProperty("category")]
+        public Category Category { get; set; }
+
+        [JsonProperty("posts")]
+        public ObservableCollection<Post> Posts { get; set; }
 
 
         public class CategoryWithPostsDataLoader : IDataLoader<CategoryWithPostsLoadContext>

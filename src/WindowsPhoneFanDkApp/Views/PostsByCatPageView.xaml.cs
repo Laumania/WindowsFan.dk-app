@@ -9,25 +9,41 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using AgFx;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using WindowsPhoneFanDkApp.Analytics;
+using WindowsPhoneFanDkApp.Api.Models;
 
 namespace WindowsPhoneFanDkApp.Views
 {
-    public partial class MainPageViewV2 : PhoneApplicationPage
+    public partial class PostsByCatPageView : PhoneApplicationPage
     {
-        public MainPageViewV2()
+        private CategoryWithPosts categoryWithPosts;
+
+        public PostsByCatPageView()
         {
             InitializeComponent();
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
+            Category category = PhoneApplicationService.Current.State["selectedCategory"] as Category;
             base.OnNavigatedTo(e);
-            AnalyticsHelper.TrackPageView("MainPageView");
+            if (category != null) AnalyticsHelper.TrackPageView("PostsByCategory " + category.Title);
             listPosts.SelectedIndex = -1;
-            listcategories.SelectedIndex = -1;
+
+
+            if (category != null)
+            {
+                this.categoryWithPosts = DataManager.Current.Load<CategoryWithPosts>(category.Id);
+                categoryWithPosts.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(categoryWithPosts_PropertyChanged);
+            }
+        }
+
+        void categoryWithPosts_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            listPosts.ItemsSource = categoryWithPosts.Posts;
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -42,19 +58,5 @@ namespace WindowsPhoneFanDkApp.Views
             NavigationService.Navigate(new Uri("/WindowsPhoneFanDkApp;component/Views/PostPageView.xaml", UriKind.RelativeOrAbsolute));
 
         }
-
-        private void listcategories_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (listcategories.SelectedIndex == -1)
-                return;
-
-            //add selected category to app service
-            PhoneApplicationService.Current.State["selectedCategory"] = e.AddedItems[0];
-
-            //navigate to posts
-            NavigationService.Navigate(new Uri("/WindowsPhoneFanDkApp;component/Views/PostsByCatPageView.xaml", UriKind.RelativeOrAbsolute));
-
-        }
-
     }
 }

@@ -642,7 +642,7 @@ namespace WindowsPhoneFanDkApp.Controls
         {
             LineBreak lineBreak = new LineBreak();
 
-            if (span != null)
+            if (span != null && !(span is Hyperlink))   //bug fix from trello: [Bug]: App crashes when the post "Metro navnet er fortid"
             {
                 span.Inlines.Add(lineBreak);
             }
