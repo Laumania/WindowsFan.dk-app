@@ -514,6 +514,8 @@ namespace WindowsPhoneFanDkApp.Controls
             switch (node.Name.ToLower())
             {
                 case "p":
+                    AppendIframe(node, paragraph);
+                    break;
                 case "blockquote":
                 case "span":
                     AppendSpan(node, paragraph, span, node.Name);
