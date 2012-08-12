@@ -7,7 +7,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="clr-namespace:WindowsPhoneFanDkApp.Controls"
-    xmlns:Converts="clr-namespace:WindowsPhoneFanDkApp.Converts" FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    xmlns:Converts="clr-namespace:WindowsPhoneFanDkApp.Converts"
+    xmlns:Controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
@@ -27,17 +29,36 @@
             <Setter Property="Margin" Value="10,0,10,0" />
         </Style>
     </phone:PhoneApplicationPage.Resources>
-    
-    <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
 
-        <ScrollViewer>
-            <StackPanel Orientation="Vertical">
-                <StackPanel Orientation="Vertical" Margin="12" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <controls:HtmlTextBlock Html="{Binding Title}"/>
-                    <TextBlock Text="{Binding Path=PostSignature, Converter={StaticResource authorConverter}}" Style="{StaticResource StyleinfoLight}" />
-                    <controls:HtmlTextBlock Html="{Binding Content}" Margin="0,-170,0,0" />
-                </StackPanel>
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="20*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+            <TextBlock Text="wp" Height="45" FontSize="30" FontWeight="ExtraBold"  HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="/WindowsPhoneFanDkApp;component/Fonts/Harabara.ttf#Harabara" />
+            <TextBlock Text="fan" Height="45" FontSize="30"  HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="sdf" />
+        </StackPanel>
+        <!--Pivot Control-->
+        <Controls:Pivot Name="pivMain" Title="" Grid.Row="1" Margin="0,-30,0,0" >
+
+            <!--Pivot item one-->
+            <Controls:PivotItem Header="Read">
+                <ScrollViewer>
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Vertical" Margin="12" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <controls:HtmlTextBlock Html="{Binding Title}"/>
+                            <TextBlock Text="{Binding Path=PostSignature, Converter={StaticResource authorConverter}}" Style="{StaticResource StyleinfoLight}" />
+                            <controls:HtmlTextBlock Html="{Binding Content}" Margin="0,-170,0,0" />
+                        </StackPanel>
+                        
+                    </StackPanel>
+                </ScrollViewer>
+            </Controls:PivotItem>
+
+            <!--Pivot item two-->
+            <Controls:PivotItem Header="Comments">
+                <ScrollViewer>
                 <ItemsControl ItemsSource="{Binding Comments}" Margin="12" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
@@ -48,15 +69,12 @@
                             </StackPanel>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
-                    
+
                 </ItemsControl>
-            </StackPanel>
-        </ScrollViewer>
-
-
-
-
-    </Grid>
+                </ScrollViewer>
+            </Controls:PivotItem>
+        </Controls:Pivot>
+    </Grid>    
  
     <!--Sample code showing usage of ApplicationBar-->
     <phone:PhoneApplicationPage.ApplicationBar>
