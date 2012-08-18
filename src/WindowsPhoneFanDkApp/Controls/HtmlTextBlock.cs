@@ -542,9 +542,9 @@ namespace WindowsPhoneFanDkApp.Controls
                     AppendHyperlink(node, paragraph, span);
                     break;
                 case "li":
-                    AppendRun(node, paragraph, span);
+                    AppendRun(node, paragraph, null);
                     AppendSpan(node, paragraph, span, node.Name);
-                    AppendLineBreak(node, paragraph, span, false);
+                    AppendLineBreak(node, paragraph, null, false);
                     break;
                 case "br":
                     AppendLineBreak(node, paragraph, span, true);
@@ -979,7 +979,7 @@ namespace WindowsPhoneFanDkApp.Controls
 
             if (node.Name.Equals("li", StringComparison.OrdinalIgnoreCase))
             {
-                run.Text = "•";
+                run.Text = "• " + node.InnerText;
             }
             else
             {

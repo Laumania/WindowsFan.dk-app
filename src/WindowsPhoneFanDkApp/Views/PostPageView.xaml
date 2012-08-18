@@ -68,7 +68,7 @@
                                 <controls:HtmlTextBlock Html="{Binding Content}" Margin="0,10,0,0"/>
                             </StackPanel>
                         </DataTemplate>
-                    </ItemsControl.ItemTemplate>
+                     </ItemsControl.ItemTemplate>
 
                 </ItemsControl>
                 </ScrollViewer>

@@ -21,8 +21,9 @@ namespace WindowsPhoneFanDkApp.Views
 
             //added 2 test category feeds to mainscreen
             //TODO: implement dynamic logic from settings
-            feedIds.Enqueue(374);
+            feedIds.Enqueue(22);
             feedIds.Enqueue(3);
+            feedIds.Enqueue(374);
             feedIds.Enqueue(12);
 
             InitFeed();

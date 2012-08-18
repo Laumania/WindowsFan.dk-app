@@ -70,7 +70,7 @@
         <controls:Pivot Name="pivMain" Title="" Grid.Row="1" Margin="0,-30,0,0" >       
         
             <!--Pivot item one-->
-            <controls:PivotItem Header="news">
+            <controls:PivotItem Header="Seneste">
                 <Grid Background="Transparent">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
@@ -101,7 +101,7 @@
             </controls:PivotItem>
 
             <!--Pivot item two-->
-            <controls:PivotItem Header="categories">
+            <controls:PivotItem Header="Feeds">
                 <Grid x:Name="ContentPanel2" Grid.Row="0" Margin="0,0,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
