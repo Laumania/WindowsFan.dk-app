@@ -194,6 +194,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Resource Include="Content\appbar.sync.rest.png" />
+    <Content Include="Content\appbar.save.rest.png" />
     <Content Include="Content\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

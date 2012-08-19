@@ -127,6 +127,7 @@
         <shell:ApplicationBar IsVisible="true" IsMenuEnabled="True" Mode="Minimized">
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem x:Name="menuSettings" Text="Settings" Click="menuSettings_Click"/>
+                <shell:ApplicationBarMenuItem Text="Om" />
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
