@@ -680,6 +680,7 @@ namespace WindowsPhoneFanDkApp.Controls
 
                 if(node.ParentNode.Name.Equals("a")) //is nedsted in hyperlink
                 {
+                    //lets go to the link.
                     image.MouseLeftButtonUp += (sender, args) =>
                                                    {
                                                        PostPageView page = ControlFinder.FindParent<PostPageView>(this);

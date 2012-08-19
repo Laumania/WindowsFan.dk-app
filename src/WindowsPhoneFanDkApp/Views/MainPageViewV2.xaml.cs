@@ -43,6 +43,9 @@ namespace WindowsPhoneFanDkApp.Views
             //navigate to post.
             NavigationService.Navigate(new Uri("/WindowsPhoneFanDkApp;component/Views/PostPageView.xaml", UriKind.RelativeOrAbsolute));
 
+            //fix for selection wierdness
+            ((ListBox) sender).SelectedIndex = -1;
+
         }
 
         private void listcategories_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -129,6 +132,7 @@ namespace WindowsPhoneFanDkApp.Views
                     lb.ItemTemplate = this.Resources["pivotListboxTemplate"] as DataTemplate;
                     lb.SelectionChanged += ListBox_SelectionChanged;
                     item.Content = lb;
+                    
 
                     pivMain.Items.Insert(1, item);
                 }
