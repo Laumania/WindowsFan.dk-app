@@ -676,6 +676,19 @@ namespace WindowsPhoneFanDkApp.Controls
                         image.Width = bitmapWidth;
                     }
                 };
+
+
+                if(node.ParentNode.Name.Equals("a")) //is nedsted in hyperlink
+                {
+                    image.MouseLeftButtonUp += (sender, args) =>
+                                                   {
+                                                       PostPageView page = ControlFinder.FindParent<PostPageView>(this);
+                                                       if (page != null)
+                                                       {
+                                                           page.Browse(node.ParentNode.Attributes["href"].Value);
+                                                       }
+                                                   };
+                }
             }
 
             inlineContainer.Child = image;
