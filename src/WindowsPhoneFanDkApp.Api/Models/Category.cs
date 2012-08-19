@@ -17,5 +17,7 @@ namespace WindowsPhoneFanDkApp.Api.Models
         [JsonProperty("title")]
         public string Title { get; set; }
 
+        public bool Selected { get; set; }
+
     }
 }

@@ -70,6 +70,7 @@
     <Compile Include="Models\FetchCategories.cs" />
     <Compile Include="Models\RecentPosts.cs" />
     <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\Settings.cs" />
     <Compile Include="Models\Status.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
