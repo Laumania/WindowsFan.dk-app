@@ -73,9 +73,7 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
                 </controls:PivotItem>
-                <controls:PivotItem Header="settings 1" />
-                <controls:PivotItem Header="settings 2" />
-                <controls:PivotItem Header="settings 3" />
+                <controls:PivotItem Header="Live Tile" />
             </controls:Pivot>
             
         </Grid>
