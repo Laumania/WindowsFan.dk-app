@@ -10,11 +10,11 @@
     xmlns:Controls="clr-namespace:WindowsPhoneFanDkApp.Controls"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:Converts="clr-namespace:WindowsPhoneFanDkApp.Converts"
-    xmlns:viewmodels="clr-namespace:WindowsPhoneFanDkApp.ViewModels" mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696"
+    xmlns:viewmodels="clr-namespace:WindowsPhoneFanDkApp.ViewModels" mc:Ignorable="d" d:DesignWidth="656" d:DesignHeight="480"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait"  Orientation="Portrait"
+    SupportedOrientations="PortraitOrLandscape"  Orientation="Landscape"
     shell:SystemTray.IsVisible="True">
 
 
@@ -62,7 +62,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="20*" />
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,-30">
             <TextBlock Text="wp" Height="45" FontSize="30" FontWeight="ExtraBold"  HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="/WindowsPhoneFanDkApp;component/Fonts/Harabara.ttf#Harabara" />
             <TextBlock Text="fan" Height="45" FontSize="30"  HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="sdf" />
         </StackPanel>

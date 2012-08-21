@@ -11,7 +11,7 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait" Orientation="Portrait"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
     mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
     shell:SystemTray.IsVisible="True">
 
@@ -37,7 +37,7 @@
         </toolkit:NavigationOutTransition>
     </toolkit:TransitionService.NavigationOutTransition>
 
-
+    <ScrollViewer>
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
@@ -45,7 +45,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="0" >
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="0" Margin="0,0,0,10" >
             <TextBlock Text="wp" Height="45" FontSize="30" FontWeight="ExtraBold"  HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="/WindowsPhoneFanDkApp;component/Fonts/Harabara.ttf#Harabara" />
             <TextBlock Text="fan" Height="45" FontSize="30"  HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="sdf" />
         </StackPanel>
@@ -54,24 +54,27 @@
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,40,0,28">
             <controls:HtmlTextBlock x:Name="ApplicationTitle" Html="{Binding Title}"/>            
         </StackPanel>
-
-        <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <StackPanel Orientation="Vertical">
-                <StackPanel Orientation="Horizontal" Margin="13,0,0,0">
-                    <TextBlock Text="Navn" Width="225"/>
-                    <TextBlock Text="Email" Width="225" />
+        
+        
+            <!--ContentPanel - place additional content here-->
+            <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" Margin="13,0,0,0">
+                        <TextBlock Text="Navn" Width="225"/>
+                        <TextBlock Text="Email" Width="225" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                        <TextBox Width="228" Name="txtName" />
+                        <TextBox Width="228" Name="txtEmail"/>
+                    </StackPanel>
+                    <TextBox AcceptsReturn="true"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" MinHeight="350" Name="txtContent"/>
+                    <Button Content="Indsend kommentar" Name="btnSubmitComment" Click="btnSubmitComment_Click" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
-                    <TextBox Width="228" Name="txtName" />
-                    <TextBox Width="228" Name="txtEmail"/>
-                </StackPanel>
-                <TextBox AcceptsReturn="true"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" MinHeight="350" Name="txtContent"/>
-                <Button Content="Indsend kommentar" Name="btnSubmitComment" Click="btnSubmitComment_Click" />
-            </StackPanel>
-        </Grid>
+            </Grid>
+        
     </Grid>
- 
+    </ScrollViewer>
+
     <!--Sample code showing usage of ApplicationBar-->
     <!--<phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
