@@ -16,7 +16,7 @@ namespace WindowsPhoneFanDkApp.Views
             InitializeComponent();
 
             //read settings
-            settings = Helper.ReadSettings();
+            settings = Helper.GetSettings();
 
             //listen when loading of categories is done
             ((MainPageViewModel)this.DataContext).Categories.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler(Categories_CollectionChanged);
@@ -57,7 +57,7 @@ namespace WindowsPhoneFanDkApp.Views
 
             }
 
-            Helper.WriteSettings(settings);
+            Helper.SaveSettings(settings);
             MessageBox.Show("Settings saved");
         }
     }

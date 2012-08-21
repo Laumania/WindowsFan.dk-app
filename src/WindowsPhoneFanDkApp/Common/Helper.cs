@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.IO.IsolatedStorage;
@@ -18,81 +19,37 @@ namespace WindowsPhoneFanDkApp.Common
 {
     public static class Helper
     {
-        public static Settings ReadSettings()
+        public static Settings GetSettings()
         {
-            Settings settings = new Settings();
-
-            try
-            {
-                //read out values for settings - if they exists
-                using (IsolatedStorageFile myIsolatedStorage = IsolatedStorageFile.GetUserStoreForApplication())
-                {
-                    IsolatedStorageFileStream isoFileStream = myIsolatedStorage.OpenFile("Settings.xml", FileMode.Open);
-                    using (StreamReader reader = new StreamReader(isoFileStream))
-                    {
-                        string xml = reader.ReadToEnd();
-                        using (XmlReader xmlreader = XmlReader.Create(new StringReader(xml)))
-                        {
-                            xmlreader.ReadToFollowing("Feeds");
-                            string feedsSetting = xmlreader.ReadInnerXml();
-
-                            string[] feeds = feedsSetting.Split('#');
-
-                            foreach (string id in feeds)
-                            {
-                                if (id != null && !string.IsNullOrEmpty(id))
-                                {
-                                    settings.FeedsIds.Enqueue(int.Parse(id));
-                                }
-                            }
-
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("No Settings.xml found!");
-            }
+            
 
 
-            return settings;
+            IsolatedStorageSettings storage = IsolatedStorageSettings.ApplicationSettings;
+             
+            return storage.Contains("settings") ? storage["settings"] as Settings : SetDefaultSettings();
         }
 
-        public static void WriteSettings(Settings settings)
+        public static void SaveSettings(Settings settings)
         {
-            //write settings to local storage as xml
-            using (IsolatedStorageFile myIsolatedStorage = IsolatedStorageFile.GetUserStoreForApplication())
-            {
-                using (IsolatedStorageFileStream isoStream = new IsolatedStorageFileStream("Settings.xml", FileMode.Create, myIsolatedStorage))
-                {
-                    XmlWriterSettings settingsXml = new XmlWriterSettings();
-                    settingsXml.Indent = true;
-                    using (XmlWriter writer = XmlWriter.Create(isoStream, settingsXml))
-                    {
+            IsolatedStorageSettings storage = IsolatedStorageSettings.ApplicationSettings;
 
-                        writer.WriteStartElement("s", "settings", "urn:settings");
-                        writer.WriteStartElement("Feeds", "");
+            storage["settings"] = settings;
+        }
 
-                        string feedsString = string.Empty;
+        public static Settings SetDefaultSettings()
+        {
+            Settings defaultSettings = new Settings();
 
-                        //create feeds string
-                        foreach (int id in settings.FeedsIds)
-                        {
-                            
-                            feedsString = id + "#" + feedsString;
+            defaultSettings.FeedsIds.Enqueue(7);
+            defaultSettings.FeedsIds.Enqueue(12);
+            defaultSettings.FeedsIds.Enqueue(374);
+            defaultSettings.FeedsIds.Enqueue(3);
+            defaultSettings.FeedsIds.Enqueue(167);
 
-                        }
+            defaultSettings.Name = string.Empty;
+            defaultSettings.Email = string.Empty;
 
-                        writer.WriteString(feedsString);
-                        writer.WriteEndElement();
-                        // Ends the document
-                        writer.WriteEndDocument();
-                        // Write the XML to the file.
-                        writer.Flush();
-                    }
-                }
-            }
+            return defaultSettings;
         }
     }
 }

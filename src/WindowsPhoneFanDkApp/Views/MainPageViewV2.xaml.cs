@@ -70,7 +70,7 @@ namespace WindowsPhoneFanDkApp.Views
         {
             currentLoadedFeeds = new Dictionary<string, CategoryWithPosts>();
             int itemsCount;
-            Queue<int> IDs = Helper.ReadSettings().FeedsIds;
+            Queue<int> IDs = Helper.GetSettings().FeedsIds;
             if (IDs.Count > 0)
             {
                 int idCount = IDs.Count;

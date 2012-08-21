@@ -35,30 +35,9 @@ namespace WindowsPhoneFanDkApp.Views
             UIState(true);
 
 
-            try
-            {
-                //read out values for name and email - if they exists
-                using (IsolatedStorageFile myIsolatedStorage = IsolatedStorageFile.GetUserStoreForApplication())
-                {
-                    IsolatedStorageFileStream isoFileStream = myIsolatedStorage.OpenFile("RecentUser.xml", FileMode.Open);
-                    using (StreamReader reader = new StreamReader(isoFileStream))
-                    {
-                        string xml = reader.ReadToEnd();
-                        using (XmlReader xmlreader = XmlReader.Create(new StringReader(xml)))
-                        {
-                            xmlreader.ReadToFollowing("Name");
-                            txtName.Text = xmlreader.ReadInnerXml();
-
-                            xmlreader.ReadToFollowing("Email");
-                            txtEmail.Text = xmlreader.ReadInnerXml();
-                        }
-                    }
-                }
-            }
-            catch
-            {
-                Debug.WriteLine("No RecentUser.xml found!");
-            }
+            //Get name and email from settings
+            txtEmail.Text = string.IsNullOrEmpty(Helper.GetSettings().Email) ? string.Empty : Helper.GetSettings().Email;
+            txtName.Text = string.IsNullOrEmpty(Helper.GetSettings().Name) ? string.Empty : Helper.GetSettings().Name;
         }
 
         private void btnSubmitComment_Click(object sender, RoutedEventArgs e)
@@ -75,31 +54,13 @@ namespace WindowsPhoneFanDkApp.Views
             }
 
 
-            //write name and email to local storage as xml
-            using (IsolatedStorageFile myIsolatedStorage = IsolatedStorageFile.GetUserStoreForApplication())
-            {
-                using (IsolatedStorageFileStream isoStream = new IsolatedStorageFileStream("RecentUser.xml", FileMode.Create, myIsolatedStorage))
-                {
-                    XmlWriterSettings settings = new XmlWriterSettings();
-                    settings.Indent = true;
-                    using (XmlWriter writer = XmlWriter.Create(isoStream, settings))
-                    {
+            //add email and name to settings
+            Settings settings = Helper.GetSettings();
+            settings.Email = txtEmail.Text;
+            settings.Name = txtName.Text;
 
-                        writer.WriteStartElement("u", "user", "urn:user");
-                        writer.WriteStartElement("Name", txtName.Text);
-                        writer.WriteString(txtName.Text);
-                        writer.WriteEndElement();
-                        writer.WriteStartElement("Email", "");
-                        writer.WriteString(txtEmail.Text);
-                        writer.WriteEndElement();
-                        // Ends the document
-                        writer.WriteEndDocument();
-                        // Write the XML to the file.
-                        writer.Flush();
-                    }
-                }
-            }
-
+            //Save settings
+            Helper.SaveSettings(settings);
 
 
             //lock up UIelements so no dobbeltclick / dobbelpost can occur.

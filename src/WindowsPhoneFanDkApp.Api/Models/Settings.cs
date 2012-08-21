@@ -26,6 +26,10 @@ namespace WindowsPhoneFanDkApp.Api.Models
             get { return feedIds; }
         }
 
+        public string Name { get; set; }
+
+        public string Email { get; set; }
+
 
     }
 }
