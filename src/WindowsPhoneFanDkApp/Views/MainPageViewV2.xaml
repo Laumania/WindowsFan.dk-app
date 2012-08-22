@@ -60,12 +60,8 @@
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <RowDefinition Height="20*" />
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,-30">
-            <TextBlock Text="wp" Height="45" FontSize="30" FontWeight="ExtraBold"  HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="/WindowsPhoneFanDkApp;component/Fonts/Harabara.ttf#Harabara" />
-            <TextBlock Text="fan" Height="45" FontSize="30"  HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="sdf" />
-        </StackPanel>
+        
         <!--Pivot Control-->
         <controls:Pivot Name="pivMain" Title="" Grid.Row="1" Margin="0,-30,0,0" >       
         
@@ -126,7 +122,7 @@
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="true" IsMenuEnabled="True" Mode="Minimized">
             <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem x:Name="menuSettings" Text="Settings" Click="menuSettings_Click"/>
+                <shell:ApplicationBarMenuItem x:Name="menuSettings" Text="Indstillinger" Click="menuSettings_Click"/>
                 <shell:ApplicationBarMenuItem Text="Om" />
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
