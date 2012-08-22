@@ -49,13 +49,10 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
-            <TextBlock Text="wp" Height="45" FontSize="30" FontWeight="ExtraBold"  HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="/WindowsPhoneFanDkApp;component/Fonts/Harabara.ttf#Harabara" />
-            <TextBlock Text="fan" Height="45" FontSize="30"  HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="sdf" />
-        </StackPanel>
+        
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,0">            
-            <TextBlock x:Name="PageTitle" Text="Settings" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle3Style}"/>
+            <TextBlock x:Name="PageTitle" Text="Indstillinger" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle3Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
@@ -82,7 +79,7 @@
     <!--Sample code showing usage of ApplicationBar-->
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="False">
-            <shell:ApplicationBarIconButton IconUri="/Content/appbar.save.rest.png" x:Name="btnSave" Text="Save" Click="btnSave_Click"/>
+            <shell:ApplicationBarIconButton IconUri="/Content/appbar.save.rest.png" x:Name="btnSave" Text="Gem" Click="btnSave_Click"/>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 

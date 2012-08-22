@@ -35,3 +35,10 @@ If you are a developer you need the following to be able to build and run the ap
 * Latest [Windows Phone SDK 7.1](http://create.msdn.com/en-us/resources/downloads)
 
 That should be enough to get started. Now what you have to do is Fork the repo, claim a task you will work on in Trello and start working. When you are done create a Pull Request so I can take in your work into the project.
+
+
+### Credits
+Here is a list of all the people who have contributed in some way to the project. Great job guys!
+* Kenn Leth Hansen
+* Christian Mourier
+* Mads Laumann
