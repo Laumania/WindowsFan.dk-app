@@ -542,9 +542,9 @@ namespace WindowsPhoneFanDkApp.Controls
                     AppendHyperlink(node, paragraph, span);
                     break;
                 case "li":
-                    AppendRun(node, paragraph, span);
+                    AppendRun(node, paragraph, null);
                     AppendSpan(node, paragraph, span, node.Name);
-                    AppendLineBreak(node, paragraph, span, false);
+                    AppendLineBreak(node, paragraph, null, false);
                     break;
                 case "br":
                     AppendLineBreak(node, paragraph, span, true);
@@ -572,7 +572,8 @@ namespace WindowsPhoneFanDkApp.Controls
                 #region ID Scraping
                 string link = node.Attributes["src"].Value;
                 string youtubeID = link.Remove(0, link.IndexOf("embed/") + 6);
-                youtubeID = youtubeID.Remove(youtubeID.IndexOf("?"), youtubeID.Length - youtubeID.IndexOf("?"));
+                if (youtubeID.IndexOf("?") > 0)
+                    youtubeID = youtubeID.Remove(youtubeID.IndexOf("?"), youtubeID.Length - youtubeID.IndexOf("?"));
                 #endregion
 
 
@@ -633,6 +634,7 @@ namespace WindowsPhoneFanDkApp.Controls
             else
             {
                 Debug.WriteLine(String.Format("Element {0} not implemented", node.Name));
+
             }
             
         }
@@ -641,7 +643,7 @@ namespace WindowsPhoneFanDkApp.Controls
         {
             LineBreak lineBreak = new LineBreak();
 
-            if (span != null)
+            if (span != null && !(span is Hyperlink))   //bug fix from trello: [Bug]: App crashes when the post "Metro navnet er fortid"
             {
                 span.Inlines.Add(lineBreak);
             }
@@ -674,6 +676,20 @@ namespace WindowsPhoneFanDkApp.Controls
                         image.Width = bitmapWidth;
                     }
                 };
+
+
+                if(node.ParentNode.Name.Equals("a")) //is nedsted in hyperlink
+                {
+                    //lets go to the link.
+                    image.MouseLeftButtonUp += (sender, args) =>
+                                                   {
+                                                       PostPageView page = ControlFinder.FindParent<PostPageView>(this);
+                                                       if (page != null)
+                                                       {
+                                                           page.Browse(node.ParentNode.Attributes["href"].Value);
+                                                       }
+                                                   };
+                }
             }
 
             inlineContainer.Child = image;
@@ -977,7 +993,7 @@ namespace WindowsPhoneFanDkApp.Controls
 
             if (node.Name.Equals("li", StringComparison.OrdinalIgnoreCase))
             {
-                run.Text = "•";
+                run.Text = "• " + node.InnerText;
             }
             else
             {

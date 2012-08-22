@@ -117,7 +117,14 @@ namespace Kawagoe.Storage
             {
                 Deployment.Current.Dispatcher.BeginInvoke(() =>
                 {
-                    imageSource.SetSource(imageDataStream);
+                    try
+                    {
+                        imageSource.SetSource(imageDataStream);
+                    }
+                    catch (Exception ex)
+                    {
+                        //TODO: fix why it ends here. This was just to prevent app from crashing
+                    }
                 });
             }
             else
