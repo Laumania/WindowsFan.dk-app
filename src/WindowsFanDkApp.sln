@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{A93DD0B2-734B-4281-9D21-9882705BAA20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KawagoeToolkit", "Dependencies\Kawagoe.1.1\KawagoeToolkit\KawagoeToolkit.csproj", "{0CDD0FA7-D5A1-47F4-B874-9C7FE4CA9257}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFanDkApp.Api", "WindowsFanDkApp.Api\WindowsFanDkApp.Api.csproj", "{84FE6C50-1140-4CB3-93F7-5B731BD11EC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFanDkApp", "WindowsFanDkApp\WindowsFanDkApp.csproj", "{9A0944E5-F78C-4C06-8AA3-625083ABF8CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0CDD0FA7-D5A1-47F4-B874-9C7FE4CA9257}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CDD0FA7-D5A1-47F4-B874-9C7FE4CA9257}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CDD0FA7-D5A1-47F4-B874-9C7FE4CA9257}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CDD0FA7-D5A1-47F4-B874-9C7FE4CA9257}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84FE6C50-1140-4CB3-93F7-5B731BD11EC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84FE6C50-1140-4CB3-93F7-5B731BD11EC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84FE6C50-1140-4CB3-93F7-5B731BD11EC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84FE6C50-1140-4CB3-93F7-5B731BD11EC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A0944E5-F78C-4C06-8AA3-625083ABF8CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A0944E5-F78C-4C06-8AA3-625083ABF8CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A0944E5-F78C-4C06-8AA3-625083ABF8CE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9A0944E5-F78C-4C06-8AA3-625083ABF8CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A0944E5-F78C-4C06-8AA3-625083ABF8CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A0944E5-F78C-4C06-8AA3-625083ABF8CE}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0CDD0FA7-D5A1-47F4-B874-9C7FE4CA9257} = {A93DD0B2-734B-4281-9D21-9882705BAA20}
+	EndGlobalSection
+EndGlobal
