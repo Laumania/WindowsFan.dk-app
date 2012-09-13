@@ -9,13 +9,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:viewmodels="clr-namespace:WindowsFanDkApp.ViewModels" xmlns:Converts="clr-namespace:WindowsFanDkApp.Converts"
-    xmlns:Controls="clr-namespace:WindowsFanDkApp.Controls" mc:Ignorable="d" d:DesignWidth="656" d:DesignHeight="480"
+    xmlns:Controls="clr-namespace:WindowsFanDkApp.Controls" mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="728"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="PortraitOrLandscape"  Orientation="Portrait"
-    shell:SystemTray.IsVisible="True">
-
+    shell:SystemTray.IsVisible="False"
+    toolkit:TiltEffect.IsTiltEnabled="True">
 
     <phone:PhoneApplicationPage.DataContext>
         <viewmodels:MainPageViewModel />        
@@ -96,24 +96,29 @@
             </controls:PivotItem>
 
             <!--Pivot item two-->
-            <controls:PivotItem Header="feeds">
+            <controls:PivotItem Header="udvalgte">
+                <TextBlock Text="Her kunne man liste top 5-8 udvalgte artikler, den som har tag featured,og vise med noget tile halløj" TextWrapping="Wrap" />
+            </controls:PivotItem>
+
+            <!--Pivot item three-->
+            <controls:PivotItem Header="kategorier">
                 <Grid x:Name="ContentPanel2" Grid.Row="0" Margin="0,0,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <ListBox Name="listcategories" Grid.Row="1" ItemsSource="{Binding Categories}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="listcategories_SelectionChanged">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal" Margin="20">
-                                <Controls:HtmlTextBlock Html="{Binding Path=Title}" />                                
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-    </Grid>
-    </controls:PivotItem>
+                    <ListBox Name="listcategories" Grid.Row="1" ItemsSource="{Binding Categories}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="listcategories_SelectionChanged">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Margin="20">
+                                    <Controls:HtmlTextBlock Html="{Binding Path=Title}" />                                
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </controls:PivotItem>
         </controls:Pivot>
     </Grid>
 

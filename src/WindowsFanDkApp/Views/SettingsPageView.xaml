@@ -15,8 +15,6 @@
     SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
     mc:Ignorable="d" d:DesignHeight="696" d:DesignWidth="480"
     shell:SystemTray.IsVisible="True">
-
-
     <phone:PhoneApplicationPage.DataContext>
         <viewmodels:MainPageViewModel />
     </phone:PhoneApplicationPage.DataContext>
@@ -57,19 +55,12 @@
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <controls:Pivot>
-                <controls:PivotItem Header="Vælg feeds">
-                    <ListBox Name="listcategories" Grid.Row="1" ItemsSource="{Binding Categories}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="listcategories_SelectionChanged">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal" Margin="20">
-                                    <CheckBox VerticalAlignment="Center" IsChecked="{Binding Selected, Mode=TwoWay}"/>
-                                    <Controls:HtmlTextBlock Html="{Binding Path=Title}" VerticalAlignment="Center" />
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
+                <controls:PivotItem Header="generelt">
+                    <TextBlock Text="Der kommer nogle settings her på et tidspunkt." />
                 </controls:PivotItem>
-                <controls:PivotItem Header="Live Tile" />
+                <controls:PivotItem Header="live tile">
+                    <TextBlock Text="Uha, noget live tile - spændende :P" />
+                </controls:PivotItem>
             </controls:Pivot>
             
         </Grid>

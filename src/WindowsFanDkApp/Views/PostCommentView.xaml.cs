@@ -33,8 +33,12 @@ namespace WindowsFanDkApp.Views
 
 
             //Get name and email from settings
-            txtEmail.Text = string.IsNullOrEmpty(Helper.GetSettings().Email) ? string.Empty : Helper.GetSettings().Email;
-            txtName.Text = string.IsNullOrEmpty(Helper.GetSettings().Name) ? string.Empty : Helper.GetSettings().Name;
+            var loginInfo = LocalStorageHelper.Current.LoginInfo;
+            if (loginInfo != null)
+            {
+                txtEmail.Text = loginInfo.Email;
+                txtName.Text = loginInfo.Name;    
+            }
         }
 
         private void btnSubmitComment_Click(object sender, RoutedEventArgs e)
@@ -52,12 +56,10 @@ namespace WindowsFanDkApp.Views
 
 
             //add email and name to settings
-            Settings settings = Helper.GetSettings();
-            settings.Email = txtEmail.Text;
-            settings.Name = txtName.Text;
+            var loginInfo = new LoginInfo {Email = txtEmail.Text, Name = txtName.Text};
 
             //Save settings
-            Helper.SaveSettings(settings);
+            LocalStorageHelper.Current.LoginInfo = loginInfo;
 
 
             //lock up UIelements so no dobbeltclick / dobbelpost can occur.
