@@ -19,7 +19,6 @@ namespace WindowsFanDkApp.Views
         public MainPageView()
         {
             InitializeComponent();
-
         }
        
 

@@ -9,12 +9,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:viewmodels="clr-namespace:WindowsFanDkApp.ViewModels" xmlns:Converts="clr-namespace:WindowsFanDkApp.Converts"
-    xmlns:Controls="clr-namespace:WindowsFanDkApp.Controls" mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="728"
+    xmlns:Controls="clr-namespace:WindowsFanDkApp.Controls" mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="PortraitOrLandscape"  Orientation="Portrait"
-    shell:SystemTray.IsVisible="False"
+    shell:SystemTray.IsVisible="True"
     toolkit:TiltEffect.IsTiltEnabled="True">
 
     <phone:PhoneApplicationPage.DataContext>
@@ -78,7 +78,7 @@
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
 
-                        <ListBox Name="listPosts" Grid.Row="1" ItemsSource="{Binding Posts}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="ListBox_SelectionChanged" >
+                        <ListBox Name="listPosts" Grid.Row="1" ItemsSource="{Binding RecentPosts.Posts}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="ListBox_SelectionChanged" >
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal" Margin="20">
@@ -108,7 +108,7 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                    <ListBox Name="listcategories" Grid.Row="1" ItemsSource="{Binding Categories}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="listcategories_SelectionChanged">
+                    <ListBox Name="listcategories" Grid.Row="1" ItemsSource="{Binding FetchCategories.Categories}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="listcategories_SelectionChanged">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" Margin="20">
