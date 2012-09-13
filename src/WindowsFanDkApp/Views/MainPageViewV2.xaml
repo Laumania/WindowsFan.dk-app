@@ -13,7 +13,7 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="PortraitOrLandscape"  Orientation="Landscape"
+    SupportedOrientations="PortraitOrLandscape"  Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
 
 
@@ -56,7 +56,7 @@
     </toolkit:TransitionService.NavigationOutTransition>
     
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Background="{StaticResource DefaultBackgroundBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
@@ -65,7 +65,7 @@
         <controls:Pivot Name="pivMain" Title="" Grid.Row="1" Margin="0,-30,0,0" >       
         
             <!--Pivot item one-->
-            <controls:PivotItem Header="Seneste">
+            <controls:PivotItem Header="seneste">
                 <Grid Background="Transparent">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
@@ -96,7 +96,7 @@
             </controls:PivotItem>
 
             <!--Pivot item two-->
-            <controls:PivotItem Header="Feeds">
+            <controls:PivotItem Header="feeds">
                 <Grid x:Name="ContentPanel2" Grid.Row="0" Margin="0,0,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
