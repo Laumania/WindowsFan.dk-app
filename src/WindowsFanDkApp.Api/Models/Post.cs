@@ -30,6 +30,8 @@ namespace WindowsFanDkApp.Api.Models
         public Status Status { get; set; }
         [JsonProperty("slug")]
         public string Slug { get; set; }
+        [JsonProperty("excerpt")]
+        public string Excerpt { get; set; }
 
         [JsonProperty("thumbnail")]
         public string Thumbnail
