@@ -125,8 +125,8 @@
     <Compile Include="Views\BrowserView.xaml.cs">
       <DependentUpon>BrowserView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MainPageViewV2.xaml.cs">
-      <DependentUpon>MainPageViewV2.xaml</DependentUpon>
+    <Compile Include="Views\MainPageView.xaml.cs">
+      <DependentUpon>MainPageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PostCommentView.xaml.cs">
       <DependentUpon>PostCommentView.xaml</DependentUpon>
@@ -145,15 +145,12 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Compile Include="ViewModels\MainPageViewModel.cs" />
-    <Compile Include="Views\MainPageView.xaml.cs">
-      <DependentUpon>MainPageView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Page Include="Views\BrowserView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MainPageViewV2.xaml">
+    <Page Include="Views\MainPageView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -179,10 +176,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="Views\MainPageView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <None Include="Fonts\Harabara.ttf" />

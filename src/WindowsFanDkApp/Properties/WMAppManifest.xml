@@ -19,10 +19,10 @@
       <Capability Name="ID_CAP_APPOINTMENTS" />
     </Capabilities>
     <Tasks>
-      <DefaultTask Name="_default" NavigationPage="Views/MainPageViewV2.xaml" />
+      <DefaultTask Name="_default" NavigationPage="Views/MainPageView.xaml" />
     </Tasks>
     <Tokens>
-      <PrimaryToken TokenID="WindowsPhoneFanDkAppToken" TaskName="_default">
+      <PrimaryToken TokenID="WindowsFanDkAppToken" TaskName="_default">
         <TemplateType5>
           <BackgroundImageURI IsRelative="true" IsResource="false">Content\Background.png</BackgroundImageURI>
           <Count>0</Count>
