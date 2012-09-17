@@ -40,3 +40,7 @@ Here is a list of all the people who have contributed in some way to the project
 * Kenn Leth Hansen
 * Christian Mourier
 * Mads Laumann
+
+### Places to look
+We could get som inspiration from this project, which is similar, at least UI-wise.
+[http://msdn.microsoft.com/en-us/magazine/jj133822.aspx](http://msdn.microsoft.com/en-us/magazine/jj133822.aspx)
