@@ -67,7 +67,7 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CategoryWithPosts.cs" />
     <Compile Include="Models\Comment.cs" />
-    <Compile Include="Models\FetchCategories.cs" />
+    <Compile Include="Models\CategoryCollection.cs" />
     <Compile Include="Models\RecentPosts.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Settings.cs" />

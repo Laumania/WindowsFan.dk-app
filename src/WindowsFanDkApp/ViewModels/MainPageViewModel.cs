@@ -13,11 +13,11 @@ namespace WindowsFanDkApp.ViewModels
             if (!IsInDesignMode)
             {
                 RecentPosts = DataManager.Current.Load<RecentPosts>(-1); // We have no identifiers for this object.
-                FetchCategories = DataManager.Current.Load<FetchCategories>(-1);
+                CategoriesCollection = DataManager.Current.Load<CategoryCollection>(-1);
             }
         }
 
         public RecentPosts RecentPosts { get; private set; }
-        public FetchCategories FetchCategories { get; private set; }
+        public CategoryCollection CategoriesCollection { get; private set; }
     }
 }

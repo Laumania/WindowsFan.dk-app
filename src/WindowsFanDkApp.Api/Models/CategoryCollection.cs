@@ -8,11 +8,11 @@ using WindowsFanDkApp.Api.Data;
 namespace WindowsFanDkApp.Api.Models
 {
     [CachePolicy(CachePolicy.AutoRefresh, 60*60*48)]
-    public class FetchCategories : ModelItemBase<CategoriesLoadContext>
+    public class CategoryCollection : ModelItemBase<CategoriesLoadContext>
     {
-        public FetchCategories(){}
+        public CategoryCollection(){}
 
-        public FetchCategories(int identifier) : base (new CategoriesLoadContext(identifier))
+        public CategoryCollection(int identifier) : base (new CategoriesLoadContext(identifier))
         {
             
         }
@@ -53,7 +53,7 @@ namespace WindowsFanDkApp.Api.Models
                 var reader = new StreamReader(stream);
                 var response = reader.ReadToEnd();
 
-                var model = JsonConvert.DeserializeObject<FetchCategories>(response);
+                var model = JsonConvert.DeserializeObject<CategoryCollection>(response);
                 model.LoadContext = loadContext;
 
                 return model;

@@ -107,7 +107,7 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                    <ListBox Name="listcategories" Grid.Row="1" ItemsSource="{Binding FetchCategories.Categories}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="listcategories_SelectionChanged">
+                    <ListBox Name="listcategories" Grid.Row="1" ItemsSource="{Binding CategoriesCollection.Categories}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="listcategories_SelectionChanged">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" Margin="20">
