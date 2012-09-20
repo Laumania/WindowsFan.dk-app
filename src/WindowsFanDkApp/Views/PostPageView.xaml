@@ -35,7 +35,7 @@
         </Grid.RowDefinitions>
         
         <!--Pivot Control-->
-        <Controls:Pivot Name="pivMain" Title="" Grid.Row="1" Margin="0,-20,0,0" >
+        <Controls:Pivot Title="" Grid.Row="1" Margin="0,-20,0,0" >
 
             <!--Pivot item one-->
             <Controls:PivotItem Header="Read">
