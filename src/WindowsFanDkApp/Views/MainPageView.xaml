@@ -14,8 +14,7 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="PortraitOrLandscape"  Orientation="Portrait"
-    shell:SystemTray.IsVisible="True"
-    toolkit:TiltEffect.IsTiltEnabled="True">
+    shell:SystemTray.IsVisible="True">
 
     <phone:PhoneApplicationPage.DataContext>
         <viewmodels:MainPageViewModel />        

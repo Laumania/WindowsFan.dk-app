@@ -3,6 +3,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using WindowsFanDkApp.Analytics;
 using WindowsFanDkApp.Api.Models;
+using WindowsFanDkApp.Common;
 using WindowsFanDkApp.ViewModels;
 
 namespace WindowsFanDkApp.Views
@@ -21,6 +22,8 @@ namespace WindowsFanDkApp.Views
             //navigate back to start screen, if we cant find the post
             if (post == null)
                 NavigationService.GoBack();
+            
+            GlobalProgressIndicator.Current.IsLoading = true;
 
             ViewModel.Setup(post);
 
@@ -29,6 +32,8 @@ namespace WindowsFanDkApp.Views
                 ApplicationBar.IsVisible = true;
 
             AnalyticsHelper.TrackPageView("PostPageView");
+            
+            GlobalProgressIndicator.Current.IsLoading = false;
         }
        
 
