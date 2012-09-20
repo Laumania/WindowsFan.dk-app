@@ -40,7 +40,7 @@ namespace WindowsFanDkApp.Api.Models
         [JsonProperty("thumbnail")]
         public string Thumbnail { get; set; }
 
-        public string ThumbnailAdvanced
+        public string ThumbnailComputed
         {
             
             get

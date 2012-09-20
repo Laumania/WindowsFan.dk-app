@@ -10,7 +10,7 @@
     <!--  Application Resources  -->
     <Application.Resources>
         <converters:ImageUrlWithCacheConverter x:Key="ImageCacheConverter" />
-        <SolidColorBrush x:Key="DefaultBackgroundBrush" Color="#FF252123"/>
+        <SolidColorBrush x:Key="DefaultBackgroundBrush" Color="Black"/>
     </Application.Resources>
     <Application.ApplicationLifetimeObjects>
         <!--  Required object that handles lifetime events for the application  -->
