@@ -82,7 +82,7 @@
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Margin="12" VerticalAlignment="Stretch">
-                                        <TextBlock Text="{Binding Title}" FontSize="{StaticResource PhoneFontSizeLarge}" TextWrapping="Wrap" />
+                                        <Controls:HtmlTextBlock Html="{Binding Title}" FontSize="{StaticResource PhoneFontSizeLarge}" />
                                         <Image Source="{Binding Thumbnail, Converter={StaticResource ImageCacheConverter}}" MaxHeight="150" Stretch="None"  />
                                         <Controls:HtmlTextBlock Html="{Binding Excerpt}" BorderThickness="0"/>
                                         <TextBlock Text="{Binding Path=Author.Nickname}" FontSize="{StaticResource PhoneFontSizeMedium}" Foreground="Gray" Margin="10,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
