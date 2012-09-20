@@ -11,7 +11,7 @@ namespace WindowsFanDkApp.Views
 {
     public partial class PostsByCatPageView : PhoneApplicationPage
     {
-        private CategoryWithPosts categoryWithPosts;
+        private CategoryPosts categoryWithPosts;
 
         public PostsByCatPageView()
         {
@@ -28,7 +28,7 @@ namespace WindowsFanDkApp.Views
 
             if (category != null)
             {
-                this.categoryWithPosts = DataManager.Current.Load<CategoryWithPosts>(category.Id);
+                this.categoryWithPosts = DataManager.Current.Load<CategoryPosts>(category.Id);
                 categoryWithPosts.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(categoryWithPosts_PropertyChanged);
             }
         }

@@ -14,8 +14,6 @@ namespace WindowsFanDkApp.Views
 {
     public partial class MainPageView : PhoneApplicationPage
     {
-        private Dictionary<string,CategoryWithPosts> currentLoadedFeeds = new Dictionary<string, CategoryWithPosts>();
-
         public MainPageView()
         {
             InitializeComponent();

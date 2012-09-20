@@ -60,18 +60,20 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="Data\CategoriesLoadContext.cs" />
-    <Compile Include="Data\CategoryWithPostsLoadContext.cs" />
+    <Compile Include="Data\CategoryPostsLoadContext.cs" />
     <Compile Include="Data\RecentPostsLoadContext.cs" />
+    <Compile Include="Data\TagPostsLoadContext.cs" />
     <Compile Include="Models\Attachment.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\CategoryWithPosts.cs" />
+    <Compile Include="Models\CategoryPosts.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\CategoryCollection.cs" />
     <Compile Include="Models\RecentPosts.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Settings.cs" />
     <Compile Include="Models\Status.cs" />
+    <Compile Include="Models\TagPosts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

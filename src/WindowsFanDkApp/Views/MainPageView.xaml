@@ -62,44 +62,46 @@
         </Grid.RowDefinitions>
         
         <!--Pivot Control-->
-        <controls:Pivot Name="pivMain" Title="" Grid.Row="1" Margin="0,-30,0,0" >       
+        <controls:Pivot Grid.Row="1" Margin="0,-30,0,0" >       
         
             <!--Pivot item one-->
             <controls:PivotItem Header="seneste">
-                <Grid Background="Transparent">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-
-                    <!--  ContentPanel - place additional content here  -->
-                    <Grid x:Name="ContentPanel" Grid.Row="0" Margin="0,0,0,0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-
-                        <ListBox Name="listPosts" Grid.Row="1" ItemsSource="{Binding RecentPosts.Posts}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="ListBox_SelectionChanged" >
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel Margin="12" VerticalAlignment="Stretch">
-                                        <Controls:HtmlTextBlock Html="{Binding Title}" FontSize="{StaticResource PhoneFontSizeLarge}" />
-                                        <Image Source="{Binding Thumbnail, Converter={StaticResource ImageCacheConverter}}" MaxHeight="150" Stretch="None"  />
-                                        <Controls:HtmlTextBlock Html="{Binding Excerpt}" BorderThickness="0"/>
-                                        <TextBlock Text="{Binding Path=Author.Nickname}" FontSize="{StaticResource PhoneFontSizeMedium}" Foreground="Gray" Margin="10,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
-                    </Grid>
-                </Grid> 
+                <ListBox x:Name="listPosts" Grid.Row="1" ItemsSource="{Binding RecentPosts.Posts}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="ListBox_SelectionChanged" >
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="12" VerticalAlignment="Stretch">
+                                <Controls:HtmlTextBlock Html="{Binding Title}" FontSize="{StaticResource PhoneFontSizeLarge}" />
+                                <Image Source="{Binding Thumbnail, Converter={StaticResource ImageCacheConverter}}" MaxHeight="150" Stretch="None"  />
+                                <Controls:HtmlTextBlock Html="{Binding Excerpt}" BorderThickness="0"/>
+                                <TextBlock Text="{Binding Path=Author.Nickname}" FontSize="{StaticResource PhoneFontSizeMedium}" Foreground="Gray" Margin="10,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </controls:PivotItem>
 
             <!--Pivot item two-->
             <controls:PivotItem Header="udvalgte">
-                <TextBlock Text="Her kunne man liste top 5-8 udvalgte artikler, den som har tag featured,og vise med noget tile halløj" TextWrapping="Wrap" />
+                <ListBox x:Name="featuredPosts" ItemsSource="{Binding FeaturedPosts.Posts}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="ListBox_SelectionChanged" >
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="12" VerticalAlignment="Stretch">
+                                <Controls:HtmlTextBlock Html="{Binding Title}" FontSize="{StaticResource PhoneFontSizeLarge}" />
+                                <Image Source="{Binding Thumbnail, Converter={StaticResource ImageCacheConverter}}" MaxHeight="150" Stretch="UniformToFill"   />
+                                <Controls:HtmlTextBlock Html="{Binding Excerpt}" BorderThickness="0"/>
+                                <TextBlock Text="{Binding Path=Author.Nickname}" FontSize="{StaticResource PhoneFontSizeMedium}" Foreground="Gray" Margin="10,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </controls:PivotItem>
 
             <!--Pivot item three-->
+            <controls:PivotItem Header="kommentarer">
+                <TextBlock Text="Seneste kommentarer?" />
+            </controls:PivotItem>
+
+            <!--Pivot item four-->
             <controls:PivotItem Header="kategorier">
                 <Grid x:Name="ContentPanel2" Grid.Row="0" Margin="0,0,0,0">
                 <Grid.RowDefinitions>

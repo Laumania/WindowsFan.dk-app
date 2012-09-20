@@ -14,10 +14,12 @@ namespace WindowsFanDkApp.ViewModels
             {
                 RecentPosts = DataManager.Current.Load<RecentPosts>(-1); // We have no identifiers for this object.
                 CategoriesCollection = DataManager.Current.Load<CategoryCollection>(-1);
+                FeaturedPosts = DataManager.Current.Load<TagPosts>("featured");
             }
         }
 
         public RecentPosts RecentPosts { get; private set; }
         public CategoryCollection CategoriesCollection { get; private set; }
+        public TagPosts FeaturedPosts { get; private set; }
     }
 }

@@ -2,9 +2,10 @@
 
 namespace WindowsFanDkApp.Api.Data
 {
-    public class CategoryWithPostsLoadContext : LoadContext
+    public class CategoryPostsLoadContext : LoadContext
     {
-        public CategoryWithPostsLoadContext(int identifier): base(identifier)
+        public CategoryPostsLoadContext(int categoryId)
+            : base(categoryId)
         {
             
         }
