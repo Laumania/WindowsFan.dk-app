@@ -73,7 +73,6 @@
     <Compile Include="Models\AttachmentImageCollection.cs" />
     <Compile Include="Models\RecentPosts.cs" />
     <Compile Include="Models\Post.cs" />
-    <Compile Include="Models\Settings.cs" />
     <Compile Include="Models\Status.cs" />
     <Compile Include="Models\TagPosts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
