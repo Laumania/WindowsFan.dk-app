@@ -69,11 +69,24 @@
                 <ListBox x:Name="recentPosts" Grid.Row="1" ItemsSource="{Binding RecentPosts.Posts}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="ListBox_SelectionChanged" >
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel VerticalAlignment="Stretch" Margin="12,0,12,24">
+                            <StackPanel VerticalAlignment="Stretch" Margin="12,0,12,48">
                                 <Image Source="{Binding ThumbnailComputed, Converter={StaticResource ImageCacheConverter}}" MaxHeight="150" Stretch="UniformToFill" />
-                                <Controls:HtmlTextBlock Html="{Binding Title}"  FontSize="{StaticResource PhoneFontSizeMedium}" BorderThickness="0" FontWeight="Bold" Margin="-12,0" />
+                                <Controls:HtmlTextBlock Html="{Binding Title}"  FontSize="{StaticResource PhoneFontSizeMedium}" BorderThickness="0" FontWeight="Bold" Margin="-12,6" />
                                 <Controls:HtmlTextBlock Html="{Binding Excerpt}" BorderThickness="0" Margin="-12,0"/>
-                                <TextBlock Text="{Binding Path=Author.Nickname}" FontSize="{StaticResource PhoneFontSizeMedium}" Foreground="Gray" Margin="10,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+                                <Grid Height="36">
+                                	<Grid.ColumnDefinitions>
+                                		<ColumnDefinition Width="50*"/>
+                                		<ColumnDefinition Width="50*"/>
+                                	</Grid.ColumnDefinitions>
+                                    <StackPanel Orientation="Horizontal" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                    	<Image Source="/WindowsFanDkApp;component/Content/commentsIcon.png" Stretch="Fill" Width="24" Height="24" VerticalAlignment="Center"/>
+                                    	<TextBlock Text="{Binding CommentCount, StringFormat=\{0\} Kommentarer}" HorizontalAlignment="Left" Foreground="Gray" VerticalAlignment="Center" Margin="6,0,0,0" FontSize="17.333"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">
+                                        <TextBlock Text="{Binding Author.Nickname, StringFormat='\{0\} '}" Foreground="Gray" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="17.333" />
+                                        <TextBlock Text="{Binding Date, StringFormat=\\| dd\\. MMMM yyyy}" Foreground="Gray" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="17.333" />
+                                    </StackPanel>
+                                </Grid>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>

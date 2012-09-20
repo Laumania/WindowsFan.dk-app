@@ -62,7 +62,10 @@ namespace WindowsFanDkApp.Api.Models
         
         [JsonProperty("comment_status")]
         public CommentStatus CommentStatus { get; set; }
-        
+
+        [JsonProperty("comment_count")]
+        public int CommentCount { get; set; }
+
         [JsonProperty("comments")]
         public ObservableCollection<Comment> Comments { get; set; }
         

@@ -198,6 +198,7 @@
     </Content>
     <Resource Include="Content\PostThumb.png" />
     <Resource Include="Content\play_overlay_icon.png" />
+    <Resource Include="Content\commentsIcon.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Delete.png" />
