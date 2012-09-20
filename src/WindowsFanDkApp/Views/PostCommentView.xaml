@@ -36,7 +36,7 @@
         </toolkit:NavigationOutTransition>
     </toolkit:TransitionService.NavigationOutTransition>
 
-    <ScrollViewer Background="{StaticResource DefaultBackgroundBrush}">
+    <ScrollViewer >
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
