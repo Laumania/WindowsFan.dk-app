@@ -7,7 +7,7 @@ using WindowsFanDkApp.Api.Data;
 
 namespace WindowsFanDkApp.Api.Models
 {
-    [CachePolicy(CachePolicy.NoCache)]
+    [CachePolicy(CachePolicy.AutoRefresh, 60*60*48)]
     public class FetchCategories : ModelItemBase<CategoriesLoadContext>
     {
         public FetchCategories(){}
