@@ -22,16 +22,7 @@
     </phone:PhoneApplicationPage.DataContext>
 
     <phone:PhoneApplicationPage.Resources>
-        <Converts:PostInfoConverter x:Name="authorConverter" />
-        <DataTemplate x:Name="pivotListboxTemplate">  
-                <StackPanel Orientation="Horizontal" Margin="20">
-                    <Image Source="{Binding Thumbnail, Converter={StaticResource ImageCacheConverter}}"  MaxWidth="150"/>
-                    <StackPanel Orientation="Vertical" VerticalAlignment="Stretch">
-                        <Controls:HtmlTextBlock Html="{Binding Title}" Width="300"/>
-                        <TextBlock Text="{Binding Path=PostSignature, Converter={StaticResource authorConverter}}" FontSize="8" FontWeight="ExtraLight" FontStyle="Italic" Foreground="Gray" Margin="10,0,0,0" VerticalAlignment="Bottom"/>
-                    </StackPanel>
-                </StackPanel>
-        </DataTemplate>
+        
     </phone:PhoneApplicationPage.Resources>
 
     <toolkit:TransitionService.NavigationInTransition>
