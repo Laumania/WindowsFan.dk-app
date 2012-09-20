@@ -3,6 +3,7 @@ using System.ComponentModel;
 using AgFx;
 using GalaSoft.MvvmLight;
 using WindowsFanDkApp.Api.Models;
+using WindowsFanDkApp.Common;
 
 namespace WindowsFanDkApp.ViewModels
 {
@@ -16,6 +17,13 @@ namespace WindowsFanDkApp.ViewModels
                 CategoriesCollection = DataManager.Current.Load<CategoryCollection>(-1);
                 FeaturedPosts = DataManager.Current.Load<TagPosts>("featured");
             }
+#if DEBUG
+            else
+            {
+                RecentPosts = SampleDataGenerator.RecentPosts;
+                FeaturedPosts = SampleDataGenerator.FeaturedPosts;
+            }
+#endif
         }
 
         public RecentPosts RecentPosts { get; private set; }

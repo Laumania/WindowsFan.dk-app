@@ -24,7 +24,7 @@ namespace WindowsFanDkApp.Views
         {
             base.OnNavigatedTo(e);
             AnalyticsHelper.TrackPageView("MainPageView");
-            listPosts.SelectedIndex = -1;
+            recentPosts.SelectedIndex = -1;
             listcategories.SelectedIndex = -1;
         }
 

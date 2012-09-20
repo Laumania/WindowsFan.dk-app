@@ -66,7 +66,7 @@
         
             <!--Pivot item one-->
             <controls:PivotItem Header="seneste">
-                <ListBox x:Name="listPosts" Grid.Row="1" ItemsSource="{Binding RecentPosts.Posts}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="ListBox_SelectionChanged" >
+                <ListBox x:Name="recentPosts" Grid.Row="1" ItemsSource="{Binding RecentPosts.Posts}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="ListBox_SelectionChanged" >
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Margin="12" VerticalAlignment="Stretch">
@@ -87,7 +87,7 @@
                         <DataTemplate>
                             <StackPanel Margin="12" VerticalAlignment="Stretch">
                                 <Controls:HtmlTextBlock Html="{Binding Title}" FontSize="{StaticResource PhoneFontSizeLarge}" />
-                                <Image Source="{Binding Thumbnail, Converter={StaticResource ImageCacheConverter}}" MaxHeight="150" Stretch="UniformToFill"   />
+                                <Image Source="{Binding ThumbnailAdvanced, Converter={StaticResource ImageCacheConverter}}" MaxHeight="150" Stretch="UniformToFill"   />
                                 <Controls:HtmlTextBlock Html="{Binding Excerpt}" BorderThickness="0"/>
                                 <TextBlock Text="{Binding Path=Author.Nickname}" FontSize="{StaticResource PhoneFontSizeMedium}" Foreground="Gray" Margin="10,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
                             </StackPanel>

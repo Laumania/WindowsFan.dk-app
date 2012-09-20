@@ -117,6 +117,7 @@
     </Compile>
     <Compile Include="Common\GlobalProgressIndicator.cs" />
     <Compile Include="Common\LocalStorageHelper.cs" />
+    <Compile Include="Common\SampleDataGenerator.cs" />
     <Compile Include="Converts\CommentNameConverter.cs" />
     <Compile Include="Common\ControlFinder.cs" />
     <Compile Include="Controls\HtmlTextBlock.cs" />

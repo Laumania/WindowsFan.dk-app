@@ -4,9 +4,9 @@ using Newtonsoft.Json;
 namespace WindowsFanDkApp.Api.Models
 {
     [CachePolicy(CachePolicy.CacheThenRefresh)]
-    public class Attachment : ModelItemBase
+    public class Attachments : ModelItemBase
     {
-        public Attachment(){}
+        public Attachments(){}
         
         [JsonProperty("id")]
         public int Id { get; set; } 
@@ -27,10 +27,12 @@ namespace WindowsFanDkApp.Api.Models
         public string Caption { get; set; }
 
         [JsonProperty("parent")]
-        public string Parent { get; set; }
+        public int Parent { get; set; }
 
         [JsonProperty("mime_type")]
         public string MimeType { get; set; }
-
+        
+        [JsonProperty("images")]
+        public AttachmentImageCollection Images { get; set; }
     }
 }
