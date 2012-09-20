@@ -86,13 +86,8 @@
             </controls:PivotItem>
 
             <!--Pivot item three-->
-            <controls:PivotItem Header="kommentarer">
-                <TextBlock Text="Seneste kommentarer?" />
-            </controls:PivotItem>
-
-            <!--Pivot item four-->
             <controls:PivotItem Header="kategorier">
-                <Grid x:Name="ContentPanel2" Grid.Row="0" Margin="0,0,0,0">
+                <Grid Margin="0,0,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
