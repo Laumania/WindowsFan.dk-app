@@ -3,6 +3,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using WindowsFanDkApp.Analytics;
 using WindowsFanDkApp.Api.Models;
+using WindowsFanDkApp.ViewModels;
 
 namespace WindowsFanDkApp.Views
 {
@@ -13,14 +14,15 @@ namespace WindowsFanDkApp.Views
             InitializeComponent();
         }
 
-        private void Init()
+        private void Initialize()
         {
-            Post post = PhoneApplicationService.Current.State["selectedPost"] as Post;
-            this.DataContext = post;
+            var post = PhoneApplicationService.Current.State["selectedPost"] as Post;
 
             //navigate back to start screen, if we cant find the post
             if (post == null)
                 NavigationService.GoBack();
+
+            ViewModel.Setup(post);
 
             //check if we are allowed to comment on post.
             if (post != null && post.CommentStatus == CommentStatus.open)
@@ -38,7 +40,7 @@ namespace WindowsFanDkApp.Views
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            Init();
+            Initialize();
         }
 
         //required for the hyperlink fix / hack.
@@ -46,6 +48,10 @@ namespace WindowsFanDkApp.Views
         {
             NavigationService.Navigate(new Uri("/Views/BrowserView.xaml?url="+ url, UriKind.Relative));
         }
-        
+
+        public PostPageViewModel ViewModel
+        {
+            get { return DataContext as PostPageViewModel; }  
+        }
     }
 }
