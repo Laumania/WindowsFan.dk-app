@@ -18,7 +18,6 @@
 
 
     <phone:PhoneApplicationPage.Resources>
-        <Converts:PostInfoConverter x:Name="authorConverter" />
         <Converts:CommentNameConverter x:Name="commentNameConverter" />
         
         <Style x:Name="StyleinfoLight" TargetType="TextBlock">
@@ -65,7 +64,7 @@
                     <StackPanel Orientation="Vertical">
                         <StackPanel Orientation="Vertical" Margin="12" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                             <controls:HtmlTextBlock Html="{Binding Title}"/>
-                            <TextBlock Text="{Binding Path=PostSignature, Converter={StaticResource authorConverter}}" Style="{StaticResource StyleinfoLight}" />
+                            <TextBlock Text="{Binding Path=PostSignature}" Style="{StaticResource StyleinfoLight}" />
                             <controls:HtmlTextBlock Html="{Binding Content}" Margin="0,-170,0,0" />
                         </StackPanel>
                         

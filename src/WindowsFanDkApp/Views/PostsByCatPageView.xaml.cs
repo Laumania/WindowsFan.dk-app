@@ -38,7 +38,7 @@ namespace WindowsFanDkApp.Views
             try
             {
                 listPosts.ItemsSource = categoryWithPosts.Posts;
-                txtHeader.Html = categoryWithPosts.Category.Title;
+                txtHeader.Text = categoryWithPosts.Category.Title;
             }
             catch (Exception ex)
             {

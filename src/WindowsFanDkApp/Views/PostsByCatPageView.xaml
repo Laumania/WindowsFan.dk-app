@@ -13,11 +13,11 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
     mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="True"
+    toolkit:TiltEffect.IsTiltEnabled="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <phone:PhoneApplicationPage.Resources>
-        <Converts:PostInfoConverter x:Name="authorConverter" />
     </phone:PhoneApplicationPage.Resources>
 
     <toolkit:TransitionService.NavigationInTransition>
@@ -47,9 +47,10 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <controls:HtmlTextBlock x:Name="txtHeader" 
-                                FontSize="{StaticResource PhoneFontSizeLarge}"
-                                Grid.Row="0"/>
+        <TextBlock x:Name="txtHeader" 
+                    FontSize="{StaticResource PhoneFontSizeLarge}"
+                    Foreground="{StaticResource PhoneAccentBrush}"
+                    Grid.Row="0"/>
         <ListBox x:Name="listPosts"  
     		HorizontalAlignment="Stretch" 
     		VerticalAlignment="Stretch" 

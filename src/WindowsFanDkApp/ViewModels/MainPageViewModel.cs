@@ -22,6 +22,7 @@ namespace WindowsFanDkApp.ViewModels
             {
                 RecentPosts = SampleDataGenerator.RecentPosts;
                 FeaturedPosts = SampleDataGenerator.FeaturedPosts;
+                CategoriesCollection = SampleDataGenerator.CategoriesCollection;
             }
 #endif
         }

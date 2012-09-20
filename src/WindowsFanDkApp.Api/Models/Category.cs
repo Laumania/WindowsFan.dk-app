@@ -17,7 +17,16 @@ namespace WindowsFanDkApp.Api.Models
         [JsonProperty("title")]
         public string Title { get; set; }
 
-        public bool Selected { get; set; }
+        [JsonProperty("slug")]
+        public string Slug { get; set; }
 
+        [JsonProperty("description")]
+        public string Description { get; set; }
+
+        [JsonProperty("post_count")]
+        public int PostCount { get; set; }
+
+        [JsonProperty("parent")]
+        public int Parent { get; set; }
     }
 }

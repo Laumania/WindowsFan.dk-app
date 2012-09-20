@@ -48,7 +48,7 @@ namespace WindowsFanDkApp.Views
         {
             if (listcategories.SelectedIndex == -1)
                 return;
-
+            
             //add selected category to app service
             PhoneApplicationService.Current.State["selectedCategory"] = e.AddedItems[0];
 

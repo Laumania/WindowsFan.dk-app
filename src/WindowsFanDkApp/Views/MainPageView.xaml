@@ -80,15 +80,24 @@
             <controls:PivotItem Header="kategorier">
                 <Grid Margin="0,0,0,0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-
-                    <ListBox Name="listcategories" Grid.Row="1" ItemsSource="{Binding CategoriesCollection.Categories}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="listcategories_SelectionChanged">
+                    <ListBox Name="listcategories" 
+                             Grid.Row="0" 
+                             ItemsSource="{Binding CategoriesCollection.Categories}" 
+                             HorizontalAlignment="Stretch" 
+                             VerticalAlignment="Stretch" 
+                             SelectionChanged="listcategories_SelectionChanged">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal" Margin="20">
-                                    <Controls:HtmlTextBlock Html="{Binding Path=Title}" />                                
+                                <StackPanel Orientation="Horizontal" Margin="12,12,0,0">
+                                    <TextBlock Text="{Binding Title}" 
+                                               FontSize="{StaticResource PhoneFontSizeLarge}" 
+                                               TextWrapping="Wrap" />
+                                    <TextBlock Text="{Binding PostCount, StringFormat=' ({0} indlæg)'}"
+                                               FontSize="{StaticResource PhoneFontSizeLarge}" />
+                                    <!--<TextBlock Text="{Binding Description}" 
+                                               TextWrapping="Wrap" />-->
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -102,7 +111,7 @@
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="true" IsMenuEnabled="True" Mode="Minimized">
             <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem x:Name="menuSettings" Text="Indstillinger" Click="menuSettings_Click"/>
+                <shell:ApplicationBarMenuItem Text="Indstillinger" Click="menuSettings_Click"/>
                 <shell:ApplicationBarMenuItem Text="Om" />
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
