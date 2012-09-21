@@ -1,0 +1,45 @@
+﻿
+<Application x:Class="WindowsFanDkApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+             xmlns:converters="clr-namespace:WindowsFanDkApp.Converts"
+             xmlns:analytics="clr-namespace:WindowsFanDkApp.Analytics"
+             xmlns:Controls="clr-namespace:WindowsFanDkApp.Controls" mc:Ignorable="d">
+    <!--  Application Resources  -->
+    <Application.Resources>
+        <converters:ImageUrlWithCacheConverter x:Key="ImageCacheConverter" />
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <DataTemplate x:Key="PostListItemDataTemplate">
+            <StackPanel VerticalAlignment="Stretch" Margin="12,0,12,48">
+                <Image Source="{Binding ThumbnailComputed, Converter={StaticResource ImageCacheConverter}}" MaxHeight="150" Stretch="UniformToFill" />
+                <Controls:HtmlTextBlock Html="{Binding Title}" FontSize="{StaticResource PhoneFontSizeMedium}" BorderThickness="0" FontWeight="Bold" Margin="-12,6" />
+                <Controls:HtmlTextBlock Html="{Binding Excerpt}" BorderThickness="0" Margin="-12,0"/>
+                <Grid Height="36">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50*"/>
+                        <ColumnDefinition Width="50*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <Image Source="/WindowsFanDkApp;component/Content/commentsIcon.png" Stretch="Fill" Width="24" Height="24" VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding CommentCount, StringFormat=\{0\} Kommentarer}" HorizontalAlignment="Left" Foreground="Gray" VerticalAlignment="Center" Margin="6,0,0,0" FontSize="17.333"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">
+                        <TextBlock Text="{Binding Author.Nickname, StringFormat='\{0\} '}" Foreground="Gray" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="17.333" />
+                        <TextBlock Text="{Binding Date, StringFormat=\\| dd\\. MMMM yyyy}" Foreground="Gray" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="17.333" />
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </DataTemplate>
+    </Application.Resources>
+    <Application.ApplicationLifetimeObjects>
+        <!--  Required object that handles lifetime events for the application  -->
+        <shell:PhoneApplicationService Activated="Application_Activated"
+                                       Closing="Application_Closing"
+                                       Deactivated="Application_Deactivated"
+                                       Launching="Application_Launching" />
+        <analytics:GoogleAnalyticsService WebPropertyId="UA-32634394-2" />
+    </Application.ApplicationLifetimeObjects>
+</Application>
