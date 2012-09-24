@@ -53,7 +53,7 @@ namespace WindowsFanDkApp.Views
             PhoneApplicationService.Current.State["selectedCategory"] = e.AddedItems[0];
 
             //navigate to posts
-            NavigationService.Navigate(new Uri("/WindowsFanDkApp;component/Views/PostsByCatPageView.xaml", UriKind.RelativeOrAbsolute));
+            NavigationService.Navigate(new Uri("/WindowsFanDkApp;component/Views/PostsByCategoryPageView.xaml", UriKind.RelativeOrAbsolute));
 
         }
 
