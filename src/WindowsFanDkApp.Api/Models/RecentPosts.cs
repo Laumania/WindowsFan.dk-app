@@ -10,7 +10,7 @@ namespace WindowsFanDkApp.Api.Models
     /// <summary>
     /// A class containing posts from the website.
     /// </summary>
-    [CachePolicy(CachePolicy.NoCache)]
+    [CachePolicy(CachePolicy.AutoRefresh)]
     public class RecentPosts : ModelItemBase<RecentPostsLoadContext>
     {
         public RecentPosts() {}
