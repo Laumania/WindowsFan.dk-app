@@ -72,7 +72,7 @@
                          HorizontalAlignment="Stretch" 
                          VerticalAlignment="Stretch" 
                          SelectionChanged="ListBox_SelectionChanged"
-                         ItemTemplate="{StaticResource PostListItemDataTemplate}"/>
+                         ItemTemplate="{StaticResource FeaturedPostListItemDataTemplate}"/>
             </controls:PivotItem>
 
             <!--Pivot item three-->
