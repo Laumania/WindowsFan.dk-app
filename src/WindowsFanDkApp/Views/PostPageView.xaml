@@ -13,7 +13,7 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
+    SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
     shell:SystemTray.IsVisible="True">
 
@@ -46,7 +46,7 @@
         </toolkit:NavigationOutTransition>
     </toolkit:TransitionService.NavigationOutTransition>
 
-    <Grid x:Name="LayoutRoot" >
+    <Grid x:Name="LayoutRoot" Background="{StaticResource BackgroundImageBrush}" >
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
@@ -76,9 +76,9 @@
                 <ItemsControl ItemsSource="{Binding Post.Comments}" Margin="12" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Vertical" Background="#FF184667" Margin="0,10,0,10">
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,10" Background="#FF4797C0">
                                 <controls:HtmlTextBlock Html="{Binding Name, Converter={StaticResource commentNameConverter}}" FontWeight="Bold"/>
-                                <TextBlock Text="{Binding Date}" />
+                                    <TextBlock Text="{Binding Date, StringFormat=dd\\. MMMM yyyy \\kl. HH:mm}" Margin="12,0,0,0" />
                                 <controls:HtmlTextBlock Html="{Binding Content}" Margin="0,10,0,0"/>
                             </StackPanel>
                         </DataTemplate>
@@ -92,7 +92,7 @@
  
     <!--Sample code showing usage of ApplicationBar-->
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="false" IsMenuEnabled="false">
+        <shell:ApplicationBar IsVisible="false" IsMenuEnabled="false" BackgroundColor="{StaticResource ActionbarBackgroundColor}">
             <shell:ApplicationBarIconButton IconUri="/Content/Appbar.addcomment.rest.png" Text="Kommentér" x:Name="btnAddComment" Click="btnAddComment_Click"/>
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="MenuItem 1"/>

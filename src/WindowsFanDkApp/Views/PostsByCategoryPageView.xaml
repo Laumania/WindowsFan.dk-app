@@ -43,7 +43,7 @@
     </toolkit:TransitionService.NavigationOutTransition> 
     
     <!--  LayoutRoot is the root grid where all page content is placed  -->
-    <Grid x:Name="LayoutRoot" >
+    <Grid x:Name="LayoutRoot" Background="{StaticResource BackgroundImageBrush}" >
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />

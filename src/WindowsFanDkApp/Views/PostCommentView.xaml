@@ -36,18 +36,12 @@
         </toolkit:NavigationOutTransition>
     </toolkit:TransitionService.NavigationOutTransition>
 
-    <ScrollViewer >
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Background="{StaticResource BackgroundImageBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="0" Margin="0,0,0,10" >
-            <TextBlock Text="wp" Height="45" FontSize="30" FontWeight="ExtraBold"  HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="/WindowsFanDkApp;component/Fonts/Harabara.ttf#Harabara" />
-            <TextBlock Text="fan" Height="45" FontSize="30"  HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="sdf" />
-        </StackPanel>
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,40,0,28">
@@ -72,8 +66,7 @@
             </Grid>
         
     </Grid>
-    </ScrollViewer>
-
+    
     <!--Sample code showing usage of ApplicationBar-->
     <!--<phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
