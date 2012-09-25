@@ -69,7 +69,7 @@
     <!--Sample code showing usage of ApplicationBar-->
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="False">
-            <shell:ApplicationBarIconButton IconUri="/Content/appbar.save.rest.png" x:Name="btnSave" Text="Gem" Click="btnSave_Click"/>
+            <shell:ApplicationBarIconButton IconUri="/Content/Appbar.save.rest.png" x:Name="btnSave" Text="Gem" Click="btnSave_Click"/>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 

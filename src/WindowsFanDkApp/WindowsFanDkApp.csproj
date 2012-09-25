@@ -25,6 +25,8 @@
     <SilverlightAppEntry>WindowsFanDkApp.App</SilverlightAppEntry>
     <ValidateXaml>true</ValidateXaml>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.30816.0</ExpressionBlendVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -187,11 +189,14 @@
     <None Include="Properties\WMAppManifest.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Content\AppBackground.jpg" />
     <Content Include="Content\Appbar.addcomment.rest.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Resource Include="Content\Appbar.sync.rest.png" />
-    <Content Include="Content\Appbar.save.rest.png" />
+    <Content Include="Content\Appbar.save.rest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -201,13 +206,15 @@
     <Resource Include="Content\PostThumb.png" />
     <Resource Include="Content\Play_overlay_icon.png" />
     <Resource Include="Content\CommentsIcon.png" />
+    <Content Include="icons\appbar.share.rest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="SplashScreenImage.jpg" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Delete.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Select.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Dependencies\Kawagoe.1.1\KawagoeToolkit\KawagoeToolkit.csproj">
       <Project>{0CDD0FA7-D5A1-47F4-B874-9C7FE4CA9257}</Project>
