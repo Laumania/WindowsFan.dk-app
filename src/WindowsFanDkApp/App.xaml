@@ -27,7 +27,7 @@
                         <TextBlock Text="{Binding CommentCount, StringFormat=\{0\} Kommentarer}" HorizontalAlignment="Left" Foreground="Gray" VerticalAlignment="Center" Margin="6,0,0,0" FontSize="17.333"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">
-                        <TextBlock Text="{Binding Author.Nickname, StringFormat='\{0\} '}" Foreground="Gray" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="17.333" />
+                        <TextBlock Text="{Binding Author.FirstName, StringFormat='\{0\} '}" Foreground="Gray" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="17.333" />
                         <TextBlock Text="{Binding Date, StringFormat=\\| dd\\. MMMM yyyy}" Foreground="Gray" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="17.333" />
                     </StackPanel>
                 </Grid>
