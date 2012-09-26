@@ -113,7 +113,7 @@
         <shell:ApplicationBar IsVisible="true" IsMenuEnabled="True" Mode="Minimized" BackgroundColor="{StaticResource ActionbarBackgroundColor}" Opacity="1">
             <shell:ApplicationBar.MenuItems>
                 <!--<shell:ApplicationBarMenuItem Text="Indstillinger" Click="menuSettings_Click"/>-->
-                <shell:ApplicationBarMenuItem Text="Om" />
+                <shell:ApplicationBarMenuItem Text="Om" Click="AboutApplicationBarMenuItem_Click" />
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>

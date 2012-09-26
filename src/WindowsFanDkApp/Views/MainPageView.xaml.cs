@@ -61,5 +61,10 @@ namespace WindowsFanDkApp.Views
         {
             NavigationService.Navigate(new Uri("/WindowsFanDkApp;component/Views/SettingsPageView.xaml", UriKind.RelativeOrAbsolute));
         }
+
+        private void AboutApplicationBarMenuItem_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/WindowsFanDkApp;component/Views/AboutPageView.xaml", UriKind.RelativeOrAbsolute));
+        }
     }
 }
