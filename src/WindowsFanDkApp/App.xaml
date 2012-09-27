@@ -13,30 +13,8 @@
         <converters:ImageUrlWithCacheConverter x:Key="ImageCacheConverter" />
         <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
         <DataTemplate x:Key="PostListItemDataTemplate">
-            <StackPanel VerticalAlignment="Stretch" Margin="12,0,12,48" d:DesignWidth="415" d:DesignHeight="457">
-                <Image Source="{Binding ThumbnailComputed, Converter={StaticResource ImageCacheConverter}}" MaxHeight="150" Stretch="None" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                <Controls:HtmlTextBlock Html="{Binding Title}" FontSize="{StaticResource PhoneFontSizeMedium}" BorderThickness="0" FontWeight="Bold" Margin="-12,6" />
-                <Controls:HtmlTextBlock Html="{Binding Excerpt}" BorderThickness="0" Margin="-12,0"/>
-                <Grid Height="36" Margin="0,6,0,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="50*"/>
-                        <ColumnDefinition Width="50*"/>
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Orientation="Horizontal" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left">
-                        <Image Source="/WindowsFanDkApp;component/Content/commentsIcon.png" Stretch="Fill" Width="36" Height="36" VerticalAlignment="Center"/>
-                        <TextBlock Text="{Binding CommentCount, StringFormat=\{0\} Kommentarer}" HorizontalAlignment="Left" Foreground="#FFCCCCCC" VerticalAlignment="Center" Margin="6,0,0,0" FontSize="17.333"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">
-                        <TextBlock Text="{Binding Author.FirstName, StringFormat='\{0\} '}" Foreground="#FFCCCCCC" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="17.333" />
-                        <TextBlock Text="{Binding Date, StringFormat=\\| dd\\. MMMM yyyy}" Foreground="#FFCCCCCC" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="17.333" />
-                    </StackPanel>
-                </Grid>
-            </StackPanel>
-        </DataTemplate>
-
-        <DataTemplate x:Key="FeaturedPostListItemDataTemplate">
             <StackPanel VerticalAlignment="Stretch" Margin="12,0,12,48">
-                <Image Source="{Binding ThumbnailComputed, Converter={StaticResource ImageCacheConverter}}" MaxHeight="350" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <Image Source="{Binding ThumbnailComputed, Converter={StaticResource ImageCacheConverter}}" MinHeight="150" MaxHeight="350" Stretch="None" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 <Controls:HtmlTextBlock Html="{Binding Title}" FontSize="{StaticResource PhoneFontSizeMedium}" BorderThickness="0" FontWeight="Bold" Margin="-12,6" />
                 <Controls:HtmlTextBlock Html="{Binding Excerpt}" BorderThickness="0" Margin="-12,0"/>
                 <Grid Height="36" Margin="0,6,0,0">

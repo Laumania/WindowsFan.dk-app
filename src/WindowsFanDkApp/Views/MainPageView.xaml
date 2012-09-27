@@ -74,7 +74,7 @@
                          HorizontalAlignment="Stretch" 
                          VerticalAlignment="Stretch" 
                          SelectionChanged="ListBox_SelectionChanged"
-                         ItemTemplate="{StaticResource FeaturedPostListItemDataTemplate}"/>
+                         ItemTemplate="{StaticResource PostListItemDataTemplate}"/>
             </controls:PivotItem>
 
             <!--Pivot item three-->
@@ -97,8 +97,6 @@
                                                TextWrapping="Wrap" />
                                     <TextBlock Text="{Binding PostCount, StringFormat=' (\{0\} indlæg)'}"
                                                FontSize="{StaticResource PhoneFontSizeLarge}" />
-                                    <!--<TextBlock Text="{Binding Description}" 
-                                               TextWrapping="Wrap" />-->
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -112,7 +110,7 @@
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="true" IsMenuEnabled="True" Mode="Minimized" BackgroundColor="{StaticResource ActionbarBackgroundColor}" Opacity="1">
             <shell:ApplicationBar.MenuItems>
-                <!--<shell:ApplicationBarMenuItem Text="Indstillinger" Click="menuSettings_Click"/>-->
+                <shell:ApplicationBarMenuItem Text="Opdater" Click="RefreshApplicationBarMenuItem_Click"/>
                 <shell:ApplicationBarMenuItem Text="Om" Click="AboutApplicationBarMenuItem_Click" />
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>

@@ -27,6 +27,13 @@ namespace WindowsFanDkApp.ViewModels
 #endif
         }
 
+        public void Refresh()
+        {
+            RecentPosts.Refresh();
+            CategoriesCollection.Refresh();
+            FeaturedPosts.Refresh();
+        }
+
         public RecentPosts RecentPosts { get; private set; }
         public CategoryCollection CategoriesCollection { get; private set; }
         public TagPosts FeaturedPosts { get; private set; }

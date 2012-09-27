@@ -9,6 +9,7 @@ using Microsoft.Phone.Shell;
 using WindowsFanDkApp.Analytics;
 using WindowsFanDkApp.Api.Models;
 using WindowsFanDkApp.Common;
+using WindowsFanDkApp.ViewModels;
 
 namespace WindowsFanDkApp.Views
 {
@@ -65,6 +66,16 @@ namespace WindowsFanDkApp.Views
         private void AboutApplicationBarMenuItem_Click(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/WindowsFanDkApp;component/Views/AboutPageView.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void RefreshApplicationBarMenuItem_Click(object sender, EventArgs e)
+        {
+            ViewModel.Refresh();
+        }
+
+        public MainPageViewModel ViewModel
+        {
+            get { return DataContext as MainPageViewModel; }
         }
     }
 }
