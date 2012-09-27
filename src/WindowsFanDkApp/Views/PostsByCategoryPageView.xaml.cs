@@ -37,6 +37,8 @@ namespace WindowsFanDkApp.Views
                 //navigate back to start screen, if we cant find the category
                 NavigationService.GoBack();
             }
+
+            listPosts.SelectedIndex = -1;
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

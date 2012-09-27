@@ -12,6 +12,7 @@
     <Application.Resources>
         <converters:ImageUrlWithCacheConverter x:Key="ImageCacheConverter" />
         <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <Color x:Key="PostInfoDefaultColor">#FFCCCCCC</Color>
         <DataTemplate x:Key="PostListItemDataTemplate">
             <StackPanel VerticalAlignment="Stretch" Margin="12,0,12,48">
                 <Image Source="{Binding ThumbnailComputed, Converter={StaticResource ImageCacheConverter}}" MinHeight="150" MaxHeight="350" Stretch="None" HorizontalAlignment="Center" VerticalAlignment="Center" />
@@ -24,11 +25,23 @@
                     </Grid.ColumnDefinitions>
                     <StackPanel Orientation="Horizontal" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left">
                         <Image Source="/WindowsFanDkApp;component/Content/commentsIcon.png" Stretch="Fill" Width="36" Height="36" VerticalAlignment="Center"/>
-                        <TextBlock Text="{Binding CommentCount, StringFormat=\{0\} Kommentarer}" HorizontalAlignment="Left" Foreground="#FFCCCCCC" VerticalAlignment="Center" Margin="6,0,0,0" FontSize="17.333"/>
+                        <TextBlock Text="{Binding CommentCount, StringFormat=\{0\} Kommentarer}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="6,0,0,0" FontSize="17.333">
+                        	<TextBlock.Foreground>
+                        		<SolidColorBrush Color="{StaticResource PostInfoDefaultColor}"/>
+                        	</TextBlock.Foreground>
+                        </TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">
-                        <TextBlock Text="{Binding Author.FirstName, StringFormat='\{0\} '}" Foreground="#FFCCCCCC" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="17.333" />
-                        <TextBlock Text="{Binding Date, StringFormat=\\| dd\\. MMMM yyyy}" Foreground="#FFCCCCCC" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="17.333" />
+                        <TextBlock Text="{Binding Author.FirstName, StringFormat='\{0\} '}" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="17.333" >
+                        	<TextBlock.Foreground>
+                        		<SolidColorBrush Color="{StaticResource PostInfoDefaultColor}"/>
+                        	</TextBlock.Foreground>
+                        </TextBlock>
+                        <TextBlock Text="{Binding Date, StringFormat=\\| dd\\. MMMM yyyy}" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="17.333" >
+                        	<TextBlock.Foreground>
+                        		<SolidColorBrush Color="{StaticResource PostInfoDefaultColor}"/>
+                        	</TextBlock.Foreground>
+                        </TextBlock>
                     </StackPanel>
                 </Grid>
             </StackPanel>

@@ -13,8 +13,7 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
     mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
-    shell:SystemTray.IsVisible="True"
-    toolkit:TiltEffect.IsTiltEnabled="True">
+    shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <phone:PhoneApplicationPage.DataContext>
@@ -51,7 +50,6 @@
         <TextBlock Text="{Binding Category.Title, FallbackValue='Header'}" 
                     FontSize="{StaticResource PhoneFontSizeLarge}"
                     FontFamily="{StaticResource PhoneFontFamilySemiBold}"
-                    Foreground="{StaticResource PhoneAccentBrush}"
                     Grid.Row="0" Margin="12,0,0,0"/>
         <ListBox x:Name="listPosts"  
             ItemsSource="{Binding CategoryPosts.Posts}"

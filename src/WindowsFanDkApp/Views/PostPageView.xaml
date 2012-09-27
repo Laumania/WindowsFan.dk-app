@@ -55,15 +55,23 @@
         <Controls:Pivot Title="" Margin="0,-20,0,0" >
 
             <!--Pivot item one-->
-            <Controls:PivotItem Header="læs">
+            <Controls:PivotItem Header="læs" Margin="12,12,12,0">
                 <ScrollViewer>
                     <StackPanel Orientation="Vertical" 
                                 HorizontalAlignment="Stretch" 
                                 VerticalAlignment="Stretch">
                         <controls:HtmlTextBlock Html="{Binding Post.Title}"/>
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,12,0">
-                            <TextBlock Text="{Binding Post.Author.Nickname, StringFormat='\{0\} '}" Foreground="Gray" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="17.333" />
-                            <TextBlock Text="{Binding Post.Date, StringFormat=\\| dd\\. MMMM yyyy}" Foreground="Gray" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="17.333" />
+                            <TextBlock Text="{Binding Post.Author.Nickname, StringFormat='\{0\} '}" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="17.333" >
+                            	<TextBlock.Foreground>
+                            		<SolidColorBrush Color="{StaticResource PostInfoDefaultColor}"/>
+                            	</TextBlock.Foreground>
+                            </TextBlock>
+                            <TextBlock Text="{Binding Post.Date, StringFormat=\\| dd\\. MMMM yyyy}" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="17.333" >
+                            	<TextBlock.Foreground>
+                            		<SolidColorBrush Color="{StaticResource PostInfoDefaultColor}"/>
+                            	</TextBlock.Foreground>
+                            </TextBlock>
                         </StackPanel>
                         <controls:HtmlTextBlock Html="{Binding Post.Content}"  Margin="0,-170,0,0" />
                     </StackPanel>
@@ -71,7 +79,7 @@
             </Controls:PivotItem>
 
             <!--Pivot item two-->
-            <Controls:PivotItem Header="kommentarer">
+            <Controls:PivotItem Header="kommentarer" Margin="12,12,12,0">
                 <ScrollViewer>
                 <ItemsControl ItemsSource="{Binding Post.Comments}" Margin="12" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <ItemsControl.ItemTemplate>
