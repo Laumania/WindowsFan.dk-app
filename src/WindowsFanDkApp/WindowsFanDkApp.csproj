@@ -110,6 +110,9 @@
     <Reference Include="System.Xml.XPath">
       <HintPath>C:\Program Files (x86)\Microsoft SDKs\Silverlight\v4.0\Libraries\Client\System.Xml.XPath.dll</HintPath>
     </Reference>
+    <Reference Include="YourLastAboutDialog">
+      <HintPath>..\packages\YLAD.2.0.0\lib\sl40-wp71\YourLastAboutDialog.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Analytics\AnalyticsHelper.cs" />
@@ -127,9 +130,6 @@
     <Compile Include="Converts\ImageUrlWithCacheConverter.cs" />
     <Compile Include="ViewModels\PostPageViewModel.cs" />
     <Compile Include="ViewModels\PostsByCategoryPageViewModel.cs" />
-    <Compile Include="Views\AboutPageView.xaml.cs">
-      <DependentUpon>AboutPageView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\BrowserView.xaml.cs">
       <DependentUpon>BrowserView.xaml</DependentUpon>
     </Compile>
@@ -148,16 +148,16 @@
     <Compile Include="Views\SettingsPageView.xaml.cs">
       <DependentUpon>SettingsPageView.xaml</DependentUpon>
     </Compile>
+    <Content Include="Content\About\AboutStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
     <Page Include="Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Page Include="Views\AboutPageView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\BrowserView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -197,6 +197,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Content\AppBackground.jpg" />
+    <Content Include="Content\About\Data.xml" />
     <Content Include="Content\Appbar.addcomment.rest.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

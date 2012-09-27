@@ -65,7 +65,7 @@ namespace WindowsFanDkApp.Views
 
         private void AboutApplicationBarMenuItem_Click(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/WindowsFanDkApp;component/Views/AboutPageView.xaml", UriKind.RelativeOrAbsolute));
+            NavigationService.Navigate(new Uri("/YourLastAboutDialog;component/AboutPage.xaml", UriKind.Relative));
         }
 
         private void RefreshApplicationBarMenuItem_Click(object sender, EventArgs e)
