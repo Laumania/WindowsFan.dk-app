@@ -100,7 +100,7 @@
  
     <!--Sample code showing usage of ApplicationBar-->
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="false" IsMenuEnabled="false" BackgroundColor="{StaticResource ActionbarBackgroundColor}">
+        <shell:ApplicationBar IsVisible="false" IsMenuEnabled="false" BackgroundColor="{StaticResource ActionbarBackgroundColor}" ForegroundColor="{StaticResource ActionbarForegroundColor}">
             <shell:ApplicationBarIconButton IconUri="/Content/Appbar.addcomment.rest.png" Text="Kommentér" x:Name="btnAddComment" Click="btnAddComment_Click"/>
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="MenuItem 1"/>

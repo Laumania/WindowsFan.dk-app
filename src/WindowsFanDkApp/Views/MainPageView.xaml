@@ -108,7 +108,7 @@
 
     <!--Sample code showing usage of ApplicationBar-->
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="true" IsMenuEnabled="True" Mode="Minimized" BackgroundColor="{StaticResource ActionbarBackgroundColor}" Opacity="1">
+        <shell:ApplicationBar IsVisible="true" IsMenuEnabled="True" Mode="Minimized" BackgroundColor="{StaticResource ActionbarBackgroundColor}" Opacity="1" ForegroundColor="{StaticResource ActionbarForegroundColor}">
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="Opdater" Click="RefreshApplicationBarMenuItem_Click"/>
                 <shell:ApplicationBarMenuItem Text="Om" Click="AboutApplicationBarMenuItem_Click" />
