@@ -54,6 +54,9 @@
     <!-- Supported types are "text" and "xaml", where text is nicely formatted automatically, and XAML is handled by the built-in XamlReader -->
     <Item Title="versioner"
           Type="text">
+      0.6.0.0
+      - Ændret måden indlæg/kommentarer vises på. Nu er der ikke længere nogen pivot, men kommentarer står under indlægget. Giver mere plads til indhold.
+      
       0.5.0.0
       - Første beta version
       - Indeholder basis funktionalitet
