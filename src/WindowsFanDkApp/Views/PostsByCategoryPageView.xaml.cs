@@ -6,44 +6,39 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using WindowsFanDkApp.Analytics;
 using WindowsFanDkApp.Api.Models;
+using WindowsFanDkApp.Common;
+using WindowsFanDkApp.ViewModels;
 
 namespace WindowsFanDkApp.Views
 {
-    public partial class PostsByCatPageView : PhoneApplicationPage
+    public partial class PostsByCategoryPageView : PhoneApplicationPage
     {
         private CategoryPosts categoryWithPosts;
 
-        public PostsByCatPageView()
+        public PostsByCategoryPageView()
         {
             InitializeComponent();
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
-            Category category = PhoneApplicationService.Current.State["selectedCategory"] as Category;
             base.OnNavigatedTo(e);
-            if (category != null) AnalyticsHelper.TrackPageView("PostsByCategory " + category.Title);
-            listPosts.SelectedIndex = -1;
-
-
+            var category = PhoneApplicationService.Current.State["selectedCategory"] as Category;
+            
             if (category != null)
             {
-                this.categoryWithPosts = DataManager.Current.Load<CategoryPosts>(category.Id);
-                categoryWithPosts.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(categoryWithPosts_PropertyChanged);
+                GlobalProgressIndicator.Current.IsLoading = true;
+                ViewModel.Setup(category);
+                GlobalProgressIndicator.Current.IsLoading = false;
+                AnalyticsHelper.TrackPageView("PostsByCategory " + category.Title);    
             }
-        }
+            else
+            {
+                //navigate back to start screen, if we cant find the category
+                NavigationService.GoBack();
+            }
 
-        void categoryWithPosts_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
-        {
-            try
-            {
-                listPosts.ItemsSource = categoryWithPosts.Posts;
-                txtHeader.Text = categoryWithPosts.Category.Title;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.ToString());
-            }
+            listPosts.SelectedIndex = -1;
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -57,6 +52,11 @@ namespace WindowsFanDkApp.Views
             //navigate to post.
             NavigationService.Navigate(new Uri("/WindowsFanDkApp;component/Views/PostPageView.xaml", UriKind.RelativeOrAbsolute));
 
+        }
+
+        public PostsByCategoryPageViewModel ViewModel
+        {
+            get { return DataContext as PostsByCategoryPageViewModel; }
         }
     }
 }

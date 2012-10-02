@@ -22,10 +22,10 @@ namespace WindowsFanDkApp.Api.Models
         public string Name { get; set; }
 
         [JsonProperty("first_name")]
-        public string First_name { get; set; }
+        public string FirstName { get; set; }
 
         [JsonProperty("last_name")]
-        public string Last_name { get; set; }
+        public string LastName { get; set; }
 
         [JsonProperty("nickname")]
         public string Nickname { get; set; }

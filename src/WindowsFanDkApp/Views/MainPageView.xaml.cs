@@ -9,6 +9,7 @@ using Microsoft.Phone.Shell;
 using WindowsFanDkApp.Analytics;
 using WindowsFanDkApp.Api.Models;
 using WindowsFanDkApp.Common;
+using WindowsFanDkApp.ViewModels;
 
 namespace WindowsFanDkApp.Views
 {
@@ -53,13 +54,28 @@ namespace WindowsFanDkApp.Views
             PhoneApplicationService.Current.State["selectedCategory"] = e.AddedItems[0];
 
             //navigate to posts
-            NavigationService.Navigate(new Uri("/WindowsFanDkApp;component/Views/PostsByCatPageView.xaml", UriKind.RelativeOrAbsolute));
+            NavigationService.Navigate(new Uri("/WindowsFanDkApp;component/Views/PostsByCategoryPageView.xaml", UriKind.RelativeOrAbsolute));
 
         }
 
         private void menuSettings_Click(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/WindowsFanDkApp;component/Views/SettingsPageView.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void AboutApplicationBarMenuItem_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/YourLastAboutDialog;component/AboutPage.xaml", UriKind.Relative));
+        }
+
+        private void RefreshApplicationBarMenuItem_Click(object sender, EventArgs e)
+        {
+            ViewModel.Refresh();
+        }
+
+        public MainPageViewModel ViewModel
+        {
+            get { return DataContext as MainPageViewModel; }
         }
     }
 }

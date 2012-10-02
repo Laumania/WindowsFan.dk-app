@@ -9,12 +9,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:viewmodels="clr-namespace:WindowsFanDkApp.ViewModels" xmlns:Converts="clr-namespace:WindowsFanDkApp.Converts"
-    xmlns:Controls="clr-namespace:WindowsFanDkApp.Controls" mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696"
+    xmlns:Controls="clr-namespace:WindowsFanDkApp.Controls" mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="728"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="PortraitOrLandscape"  Orientation="Portrait"
-    shell:SystemTray.IsVisible="True">
+    SupportedOrientations="Portrait"  Orientation="Portrait" shell:SystemTray.IsVisible="False">
 
     <phone:PhoneApplicationPage.DataContext>
         <viewmodels:MainPageViewModel />        
@@ -46,10 +45,13 @@
     </toolkit:TransitionService.NavigationOutTransition>
     
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" >
+    <Grid x:Name="LayoutRoot" Background="{StaticResource BackgroundImageBrush}" >
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+        
+        <!--Pivot Control-->
+        <Image Source="/WindowsFanDkApp;component/Content/AppBackground.jpg" Stretch="None" Visibility="Collapsed"/>
         
         <!--Pivot Control-->
         <controls:Pivot Grid.Row="1" Margin="0,-30,0,0" >       
@@ -81,7 +83,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                    <ListBox Name="listcategories" 
+                    <ListBox x:Name="listcategories" 
                              Grid.Row="0" 
                              ItemsSource="{Binding CategoriesCollection.Categories}" 
                              HorizontalAlignment="Stretch" 
@@ -93,10 +95,8 @@
                                     <TextBlock Text="{Binding Title}" 
                                                FontSize="{StaticResource PhoneFontSizeLarge}" 
                                                TextWrapping="Wrap" />
-                                    <TextBlock Text="{Binding PostCount, StringFormat=' ({0} indlæg)'}"
+                                    <TextBlock Text="{Binding PostCount, StringFormat=' (\{0\} indlæg)'}"
                                                FontSize="{StaticResource PhoneFontSizeLarge}" />
-                                    <!--<TextBlock Text="{Binding Description}" 
-                                               TextWrapping="Wrap" />-->
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -108,10 +108,10 @@
 
     <!--Sample code showing usage of ApplicationBar-->
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="true" IsMenuEnabled="True" Mode="Minimized">
+        <shell:ApplicationBar IsVisible="true" IsMenuEnabled="True" Mode="Minimized" BackgroundColor="{StaticResource ActionbarBackgroundColor}" Opacity="1" ForegroundColor="{StaticResource ActionbarForegroundColor}">
             <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="Indstillinger" Click="menuSettings_Click"/>
-                <shell:ApplicationBarMenuItem Text="Om" />
+                <shell:ApplicationBarMenuItem Text="Opdater" Click="RefreshApplicationBarMenuItem_Click"/>
+                <shell:ApplicationBarMenuItem Text="Om" Click="AboutApplicationBarMenuItem_Click" />
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>

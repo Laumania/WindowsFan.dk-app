@@ -1,5 +1,5 @@
 ﻿<phone:PhoneApplicationPage 
-    x:Class="WindowsFanDkApp.Views.PostsByCatPageView"
+    x:Class="WindowsFanDkApp.Views.PostsByCategoryPageView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
@@ -8,17 +8,17 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:Converts="clr-namespace:WindowsFanDkApp.Converts" xmlns:controls="clr-namespace:WindowsFanDkApp.Controls"
-    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    xmlns:viewmodels="clr-namespace:WindowsFanDkApp.ViewModels" FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
-    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
-    shell:SystemTray.IsVisible="True"
-    toolkit:TiltEffect.IsTiltEnabled="True">
+    mc:Ignorable="d" d:DesignHeight="800" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="False">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <phone:PhoneApplicationPage.Resources>
-    </phone:PhoneApplicationPage.Resources>
+    <phone:PhoneApplicationPage.DataContext>
+        <viewmodels:PostsByCategoryPageViewModel />
+    </phone:PhoneApplicationPage.DataContext>
 
     <toolkit:TransitionService.NavigationInTransition>
         <toolkit:NavigationInTransition>
@@ -42,33 +42,22 @@
     </toolkit:TransitionService.NavigationOutTransition> 
     
     <!--  LayoutRoot is the root grid where all page content is placed  -->
-    <Grid x:Name="LayoutRoot" >
+    <Grid x:Name="LayoutRoot" Background="{StaticResource BackgroundImageBrush}" >
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBlock x:Name="txtHeader" 
+        <TextBlock Text="{Binding Category.Title, FallbackValue='Header'}" 
                     FontSize="{StaticResource PhoneFontSizeLarge}"
-                    Foreground="{StaticResource PhoneAccentBrush}"
-                    Grid.Row="0"/>
+                    FontFamily="{StaticResource PhoneFontFamilySemiBold}"
+                    Grid.Row="0" Margin="12,0,0,0"/>
         <ListBox x:Name="listPosts"  
+            ItemsSource="{Binding CategoryPosts.Posts}"
     		HorizontalAlignment="Stretch" 
     		VerticalAlignment="Stretch" 
     		SelectionChanged="ListBox_SelectionChanged"
     		ItemTemplate="{StaticResource PostListItemDataTemplate}" 
             Grid.Row="1" />
     </Grid>
-
-    <!--Sample code showing usage of ApplicationBar-->
-    <!--<phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
-            <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
-                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
-            </shell:ApplicationBar.MenuItems>
-        </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>-->
 
 </phone:PhoneApplicationPage>

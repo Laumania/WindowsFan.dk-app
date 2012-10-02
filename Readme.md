@@ -29,7 +29,7 @@ To keep things moving along and to help organize and structure the process, we w
 ### Prerequisites
 If you are a developer you need the following to be able to build and run the app:
 
-* Some version of Visual Studio 2010 (Express, Premium, Ultimate, you-name-it).
+* Some version of Visual Studio 2010 (Premium, Ultimate, etc). **Note**: Express doens't work as we use Solution folders, which Express doesn't support. If you would like to participate and you use Express, let's look into a solution - until then I won't do anything about it.
 * Latest [Windows Phone SDK 7.1](http://create.msdn.com/en-us/resources/downloads)
 
 That should be enough to get started. Now what you have to do is Fork the repo, claim a task you will work on in Trello and start working. When you are done create a Pull Request so I can take in your work into the project.

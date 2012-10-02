@@ -16,6 +16,7 @@ using WindowsFanDkApp.Api.Data;
 
 namespace WindowsFanDkApp.Api.Models
 {
+    [CachePolicy(CachePolicy.AutoRefresh)]
     public class TagPosts : ModelItemBase<TagPostsLoadContext>
     {
         public TagPosts() {}
@@ -32,8 +33,25 @@ namespace WindowsFanDkApp.Api.Models
         public int Count { get; set; }
         [JsonProperty("pages")]
         public int Pages { get; set; }
+
+        private readonly ObservableCollection<Post> _posts = new ObservableCollection<Post>();
         [JsonProperty("posts")]
-        public ObservableCollection<Post> Posts { get; set; }
+        public ObservableCollection<Post> Posts
+        {
+            get { return _posts; }
+            set
+            {
+                if (_posts != null)
+                {
+                    _posts.Clear();
+                    foreach (var report in value)
+                    {
+                        _posts.Add(report);
+                    }
+                }
+                RaisePropertyChanged("Posts");
+            }
+        }
 
 
         public class TagPostsDataLoader : IDataLoader<TagPostsLoadContext>
