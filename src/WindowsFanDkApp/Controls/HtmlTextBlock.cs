@@ -616,7 +616,7 @@ namespace WindowsFanDkApp.Controls
 
                 inlineContainer.Child = canvas;
                 image.Stretch = Stretch.Uniform;
-                canvas.MouseLeftButtonUp += (sender, args) =>
+                canvas.Tap += (sender, args) =>
                                                {
                                                    PostPageView page = ControlFinder.FindParent<PostPageView>(this);
                                                    if (page != null)
@@ -682,7 +682,7 @@ namespace WindowsFanDkApp.Controls
                 if(node.ParentNode.Name.Equals("a")) //is nedsted in hyperlink
                 {
                     //lets go to the link.
-                    image.MouseLeftButtonUp += (sender, args) =>
+                    image.Tap += (sender, args) =>
                                                    {
                                                        PostPageView page = ControlFinder.FindParent<PostPageView>(this);
                                                        if (page != null)
