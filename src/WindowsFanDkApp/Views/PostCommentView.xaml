@@ -35,37 +35,42 @@
             </toolkit:NavigationOutTransition.Forward>
         </toolkit:NavigationOutTransition>
     </toolkit:TransitionService.NavigationOutTransition>
-
-    <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="{StaticResource BackgroundImageBrush}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,40,0,28">
-            <controls:HtmlTextBlock x:Name="ApplicationTitle" Html="{Binding Title}"/>            
-        </StackPanel>
+        <!--LayoutRoot is the root grid where all page content is placed-->
+        <Grid x:Name="LayoutRoot" Background="{StaticResource BackgroundImageBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+        
+                <!--TitlePanel contains the name of the application and page title-->
+                <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,40,0,28">
+                    <controls:HtmlTextBlock x:Name="ApplicationTitle" Html="{Binding Title}"/>            
+                </StackPanel>   
         
         
-            <!--ContentPanel - place additional content here-->
-            <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-                <StackPanel Orientation="Vertical">
-                    <StackPanel Orientation="Horizontal" Margin="13,0,0,0">
-                        <TextBlock Text="Navn" Width="225"/>
-                        <TextBlock Text="Email" Width="225" />
+                <!--ContentPanel - place additional content here-->
+                <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+                <ScrollViewer>
+                    <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal" Margin="13,0,0,0">
+                                <TextBlock Text="Navn" Width="225"/>
+                                <TextBlock Text="Email" Width="225" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                <TextBox Width="228" x:Name="txtName" InputScope="Text" />
+                                <TextBox Width="228" x:Name="txtEmail" InputScope="EmailNameOrAddress"/>
+                            </StackPanel>
+                            <TextBox AcceptsReturn="true"  HorizontalAlignment="Stretch" 
+                                    VerticalAlignment="Stretch" 
+                                    TextWrapping="Wrap" 
+                                    MinHeight="350" 
+                                    x:Name="txtContent"
+                                    InputScope="Chat" />
+                            <Button Content="Indsend kommentar" Name="btnSubmitComment" Click="btnSubmitComment_Click" />
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
-                        <TextBox Width="228" Name="txtName" />
-                        <TextBox Width="228" Name="txtEmail"/>
-                    </StackPanel>
-                    <TextBox AcceptsReturn="true"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" MinHeight="350" Name="txtContent"/>
-                    <Button Content="Indsend kommentar" Name="btnSubmitComment" Click="btnSubmitComment_Click" />
-                </StackPanel>
-            </Grid>
-        
-    </Grid>
+                </ScrollViewer>
+                </Grid>
+        </Grid>
     
     <!--Sample code showing usage of ApplicationBar-->
     <!--<phone:PhoneApplicationPage.ApplicationBar>
