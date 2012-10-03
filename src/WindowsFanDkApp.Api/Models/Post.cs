@@ -21,6 +21,9 @@ namespace WindowsFanDkApp.Api.Models
 
         [JsonProperty("title")]
         public string Title { get; set; }
+
+        [JsonProperty("url")]
+        public string Url { get; set; }
         
         [JsonProperty("title_plain")]
         public string TitlePlain { get; set; }

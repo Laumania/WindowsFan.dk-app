@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using Microsoft.Phone.Tasks;
 using WindowsFanDkApp.Analytics;
 using WindowsFanDkApp.Api.Models;
 using WindowsFanDkApp.Common;
@@ -47,7 +48,14 @@ namespace WindowsFanDkApp.Views
         //required for the hyperlink fix / hack.
         public void Browse(string url)
         {
-            NavigationService.Navigate(new Uri("/Views/BrowserView.xaml?url="+ url, UriKind.Relative));
+            var task = new WebBrowserTask();
+            task.Uri = new Uri(url);
+            task.Show();
+        }
+
+        private void btnShowInBrowser_Click(object sender, EventArgs e)
+        {
+            Browse(ViewModel.Post.Url);
         }
 
         public PostPageViewModel ViewModel

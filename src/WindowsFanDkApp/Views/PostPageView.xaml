@@ -97,6 +97,7 @@
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="false" IsMenuEnabled="false" BackgroundColor="{StaticResource ActionbarBackgroundColor}" ForegroundColor="{StaticResource ActionbarForegroundColor}">
             <shell:ApplicationBarIconButton IconUri="/Content/Appbar.addcomment.rest.png" Text="Kommentér" x:Name="btnAddComment" Click="btnAddComment_Click"/>
+            <shell:ApplicationBarIconButton IconUri="/Content/Appbar.showinbrowser.rest.png" Text="Vis i browser" x:Name="btnShowInBrowser" Click="btnShowInBrowser_Click"/>
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
                 <shell:ApplicationBarMenuItem Text="MenuItem 2"/>

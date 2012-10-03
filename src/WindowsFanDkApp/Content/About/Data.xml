@@ -54,6 +54,10 @@
     <!-- Supported types are "text" and "xaml", where text is nicely formatted automatically, and XAML is handled by the built-in XamlReader -->
     <Item Title="versioner"
           Type="text">
+      0.8.0.0
+      - Tilføjet check for netværk i startup, da app'en jo ikke fungerer så godt uden.
+      - Tilføjet "vis i browser" knap på siden der viser et indlæg. (Der kan være indlæg som indeholder elementer der ikke kan vises korrekt i selve app'en)
+      
       0.7.0.0
       - [Bug fix] Billederne i indlæg åbner for nemt (hvis man scroller fx). Nu skal man "trykke" på dem før de åbner.
       
