@@ -56,6 +56,7 @@
           Type="text">
       0.7.0.0
       - [Bug fix] Billederne i indlæg åbner for nemt (hvis man scroller fx). Nu skal man "trykke" på dem før de åbner.
+      
       0.6.0.0
       - Ændret måden indlæg/kommentarer vises på. Nu er der ikke længere nogen pivot, men kommentarer står under indlægget. Giver mere plads til indhold.
       - System.Tray i toppen er ikke længere synlig, hvilket giver mere plads til indhold. Dog giver det også pt det problem at progressbaren i toppen heller ikke er synlig. Må finde en løsning.
