@@ -46,7 +46,7 @@
                 </Grid>
             </StackPanel>
         </DataTemplate>
-        <ImageBrush x:Key="BackgroundImageBrush" Stretch="None" ImageSource="/WindowsFanDkApp;component/Content/AppBackground.jpg" Opacity=".5"/>
+        <ImageBrush x:Key="BackgroundImageBrush" Stretch="UniformToFill" ImageSource="/WindowsFanDkApp;component/Content/AppBackground.jpg" Opacity=".5"/>
         <Color x:Key="ActionbarBackgroundColor">#FF185371</Color>
         <Color x:Key="ActionbarForegroundColor">#FFFFFFFF</Color>
     </Application.Resources>

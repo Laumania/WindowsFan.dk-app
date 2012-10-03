@@ -59,6 +59,7 @@
       - Tilføjet "vis i browser" knap på siden der viser et indlæg. (Der kan være indlæg som indeholder elementer der ikke kan vises korrekt i selve app'en)
       - Generelt åbnes links og billeder nu i WP's egen browser og ikke i en embedded browser i app'en som før.
       - Ændre keyboardet til de forskellige felter på siden hvor man skriver en kommentar. Dette gør fx at man nu kan vælge smilies :)
+      - Understøttelse af "Landskabs-mode"
       
       0.7.0.0
       - [Bug fix] Billederne i indlæg åbner for nemt (hvis man scroller fx). Nu skal man "trykke" på dem før de åbner.
