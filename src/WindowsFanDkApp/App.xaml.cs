@@ -5,6 +5,7 @@ using System.Windows.Media;
 using System.Windows.Navigation;
 using AgFx;
 using Microsoft.Phone.Controls;
+using Microsoft.Phone.Net.NetworkInformation;
 using Microsoft.Phone.Shell;
 using WindowsFanDkApp.Common;
 
@@ -72,12 +73,16 @@ namespace WindowsFanDkApp
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
+            if (HasNetwork() == false)
+                ShowNoNetworkMessage();
         }
 
         // Code to execute when the application is activated (brought to foreground)
         // This code will not execute when the application is first launched
         private void Application_Activated(object sender, ActivatedEventArgs e)
         {
+            if (HasNetwork() == false)
+                ShowNoNetworkMessage();
         }
 
         // Code to execute when the application is deactivated (sent to background)
@@ -112,6 +117,17 @@ namespace WindowsFanDkApp
             }
         }
 
+        private void ShowNoNetworkMessage()
+        {
+            MessageBox.Show("Denne app kræver internet adgang for at fungere. Kontrollér venligst din internet forbindelse og prøv igen.", "Netværksfejl", MessageBoxButton.OK);
+        }
+
+        private bool HasNetwork()
+        {
+            return System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable() ||
+                   NetworkInterface.NetworkInterfaceType != NetworkInterfaceType.None;
+        }
+
         private void HandleUnhandledException(Exception exception)
         {
 
@@ -133,7 +149,7 @@ namespace WindowsFanDkApp
         // Do not add any additional code to this method
         private void InitializePhoneApplication()
         {
-            if (phoneApplicationInitialized)
+            if (phoneApplicationInitialized || !HasNetwork())
                 return;
 
             // Create the frame but don't set it as RootVisual yet; this allows the splash
