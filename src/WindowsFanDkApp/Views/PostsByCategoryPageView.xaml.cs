@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading;
 using System.Windows.Controls;
+using System.Windows.Markup;
 using AgFx;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
@@ -18,6 +20,7 @@ namespace WindowsFanDkApp.Views
         public PostsByCategoryPageView()
         {
             InitializeComponent();
+            this.Language = XmlLanguage.GetLanguage(Thread.CurrentThread.CurrentCulture.Name);
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)

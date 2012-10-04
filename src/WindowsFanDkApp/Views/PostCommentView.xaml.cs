@@ -3,7 +3,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Windows;
+using System.Windows.Markup;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using WindowsFanDkApp.Api.Models;
@@ -17,6 +19,7 @@ namespace WindowsFanDkApp.Views
         public PostCommentView()
         {
             InitializeComponent();
+            this.Language = XmlLanguage.GetLanguage(Thread.CurrentThread.CurrentCulture.Name);
 
             //Get post from applicationService
             post = PhoneApplicationService.Current.State["selectedPost"] as Post;

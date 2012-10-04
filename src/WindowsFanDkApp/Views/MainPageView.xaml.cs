@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Markup;
 using AgFx;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
@@ -18,6 +20,7 @@ namespace WindowsFanDkApp.Views
         public MainPageView()
         {
             InitializeComponent();
+            this.Language = XmlLanguage.GetLanguage(Thread.CurrentThread.CurrentCulture.Name);
         }
        
 

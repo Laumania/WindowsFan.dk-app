@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Globalization;
+using System.Threading;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Navigation;
@@ -67,6 +69,8 @@ namespace WindowsFanDkApp
                     GlobalProgressIndicator.Current.IsLoading = DataManager.Current.IsLoading;
                 }
             };
+
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("da-DK");
         }
 
         // Code to execute when the application is launching (eg, from Start)

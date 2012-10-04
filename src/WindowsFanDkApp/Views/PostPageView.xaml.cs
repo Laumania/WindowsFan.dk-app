@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading;
+using System.Windows.Markup;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Microsoft.Phone.Tasks;
@@ -14,6 +16,7 @@ namespace WindowsFanDkApp.Views
         public PostPageView()
         {
             InitializeComponent();
+            this.Language = XmlLanguage.GetLanguage(Thread.CurrentThread.CurrentCulture.Name);
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
