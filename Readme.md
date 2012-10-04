@@ -39,6 +39,8 @@ That should be enough to get started. Now what you have to do is Fork the repo, 
 Here is a list of all the people who have contributed in some way to the project. Great job guys!
 * Kenn Leth Hansen
 * Christian Mourier
+* Alexander Wennerstrøm
+* Kim Christiansen
 * Mads Laumann
 
 ### Places to look
