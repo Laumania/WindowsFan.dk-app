@@ -47,10 +47,11 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBlock Text="{Binding Category.Title, FallbackValue='Header'}" 
+        <controls:HtmlTextBlock Html="{Binding Category.Title, FallbackValue='Header'}" 
+                    Grid.Row="0" 
                     FontSize="{StaticResource PhoneFontSizeLarge}"
                     FontFamily="{StaticResource PhoneFontFamilySemiBold}"
-                    Grid.Row="0" Margin="12,0,0,0"/>
+                    BorderThickness="0" Margin="0,0,0,0" />
         <ListBox x:Name="listPosts"  
             ItemsSource="{Binding CategoryPosts.Posts}"
     		HorizontalAlignment="Stretch" 

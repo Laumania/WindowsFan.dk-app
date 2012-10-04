@@ -92,9 +92,9 @@
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" Margin="12,12,0,0">
-                                    <TextBlock Text="{Binding Title}" 
-                                               FontSize="{StaticResource PhoneFontSizeLarge}" 
-                                               TextWrapping="Wrap" />
+                                    <Controls:HtmlTextBlock Html="{Binding Title}" 
+                                                            BorderThickness="0" Margin="-12,0"
+                                                            FontSize="{StaticResource PhoneFontSizeLarge}" />
                                     <TextBlock Text="{Binding PostCount, StringFormat=' (\{0\} indlæg)'}"
                                                FontSize="{StaticResource PhoneFontSizeLarge}" />
                                 </StackPanel>
