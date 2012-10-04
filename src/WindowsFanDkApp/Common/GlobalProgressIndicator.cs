@@ -74,6 +74,7 @@ namespace WindowsFanDkApp.Common
             var pp = ee as PhoneApplicationPage;
             if (pp != null)
             {
+                pp.SetValue(SystemTray.OpacityProperty, 0.0d);
                 pp.SetValue(SystemTray.ProgressIndicatorProperty, _indicator);
             }
         }

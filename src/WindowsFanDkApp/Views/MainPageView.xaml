@@ -9,11 +9,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:viewmodels="clr-namespace:WindowsFanDkApp.ViewModels" xmlns:Converts="clr-namespace:WindowsFanDkApp.Converts"
-    xmlns:Controls="clr-namespace:WindowsFanDkApp.Controls" mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="728"
+    xmlns:Controls="clr-namespace:WindowsFanDkApp.Controls" mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="PortraitOrLandscape"  Orientation="Portrait" shell:SystemTray.IsVisible="False">
+    SupportedOrientations="PortraitOrLandscape"  Orientation="Portrait" shell:SystemTray.IsVisible="True">
 
     <phone:PhoneApplicationPage.DataContext>
         <viewmodels:MainPageViewModel />        
