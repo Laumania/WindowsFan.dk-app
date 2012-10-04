@@ -16,7 +16,7 @@ using WindowsFanDkApp.Api.Data;
 
 namespace WindowsFanDkApp.Api.Models
 {
-    [CachePolicy(CachePolicy.AutoRefresh)]
+    [CachePolicy(CachePolicy.NoCache)]
     public class TagPosts : ModelItemBase<TagPostsLoadContext>
     {
         public TagPosts() {}
