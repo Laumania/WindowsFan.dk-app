@@ -32,8 +32,8 @@ namespace WindowsFanDkApp.Views
                 //check if we are allowed to comment on post.
                 if (post != null && post.CommentStatus == CommentStatus.open)
                     ApplicationBar.IsVisible = true;
-                
-                AnalyticsHelper.TrackPageView("PostPageView");
+
+                AnalyticsHelper.TrackPageView("PostPageView " + ViewModel.Post.Slug);
                 GlobalProgressIndicator.Current.IsLoading = false;
             }
             else
