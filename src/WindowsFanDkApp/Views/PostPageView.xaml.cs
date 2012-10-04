@@ -33,7 +33,7 @@ namespace WindowsFanDkApp.Views
                 if (post != null && post.CommentStatus == CommentStatus.open)
                     ApplicationBar.IsVisible = true;
 
-                AnalyticsHelper.TrackPageView("PostPageView " + ViewModel.Post.Slug);
+                AnalyticsHelper.TrackPageView("PostPageView/" + ViewModel.Post.Slug);
                 GlobalProgressIndicator.Current.IsLoading = false;
             }
             else

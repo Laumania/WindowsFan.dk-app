@@ -33,7 +33,7 @@ namespace WindowsFanDkApp.Views
                 GlobalProgressIndicator.Current.IsLoading = true;
                 ViewModel.Setup(category);
                 GlobalProgressIndicator.Current.IsLoading = false;
-                AnalyticsHelper.TrackPageView("PostsByCategory " + category.Title);    
+                AnalyticsHelper.TrackPageView("PostsByCategory/" + category.Title);    
             }
             else
             {

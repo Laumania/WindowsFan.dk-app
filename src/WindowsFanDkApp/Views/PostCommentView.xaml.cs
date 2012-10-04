@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Markup;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using WindowsFanDkApp.Analytics;
 using WindowsFanDkApp.Api.Models;
 using WindowsFanDkApp.Common;
 
@@ -42,6 +43,12 @@ namespace WindowsFanDkApp.Views
                 txtEmail.Text = loginInfo.Email;
                 txtName.Text = loginInfo.Name;    
             }
+        }
+
+        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            AnalyticsHelper.TrackPageView("PostCommentView/" + post.Slug);    
         }
 
         private void btnSubmitComment_Click(object sender, RoutedEventArgs e)
