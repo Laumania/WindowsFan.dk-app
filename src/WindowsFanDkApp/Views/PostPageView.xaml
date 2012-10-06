@@ -59,7 +59,7 @@
                                 Grid.Row="0">
                     <controls:HtmlTextBlock Html="{Binding Post.Title}" FontSize="{StaticResource PhoneFontSizeLarge}"/>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,12,0">
-                        <TextBlock Text="{Binding Post.Author.Nickname, StringFormat='\{0\} '}" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="17.333" >
+                        <TextBlock Text="{Binding Post.Author.FirstName, StringFormat='\{0\} '}" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="17.333" >
                             	<TextBlock.Foreground>
                             		<SolidColorBrush Color="{StaticResource PostInfoDefaultColor}"/>
                             	</TextBlock.Foreground>
