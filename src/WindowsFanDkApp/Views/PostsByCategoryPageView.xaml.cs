@@ -15,8 +15,6 @@ namespace WindowsFanDkApp.Views
 {
     public partial class PostsByCategoryPageView : PhoneApplicationPage
     {
-        private CategoryPosts categoryWithPosts;
-
         public PostsByCategoryPageView()
         {
             InitializeComponent();
