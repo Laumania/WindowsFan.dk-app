@@ -13,6 +13,9 @@
         <converters:ImageUrlWithCacheConverter x:Key="ImageCacheConverter" />
         <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
         <Color x:Key="PostInfoDefaultColor">#FFFFFFFF</Color>
+        <Style TargetType="Controls:HtmlTextBlock">
+            <Setter Property="HyperlinkForeground" Value="RoyalBlue" />
+        </Style>
         <DataTemplate x:Key="PostListItemDataTemplate">
             <StackPanel VerticalAlignment="Stretch" Margin="12,0,12,48">
                 <Image Source="{Binding ThumbnailComputed, Converter={StaticResource ImageCacheConverter}}" MinHeight="150" MaxHeight="350" Stretch="None" HorizontalAlignment="Center" VerticalAlignment="Center" />
