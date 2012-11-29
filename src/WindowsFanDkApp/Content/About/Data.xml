@@ -54,9 +54,12 @@
     <!-- Supported types are "text" and "xaml", where text is nicely formatted automatically, and XAML is handled by the built-in XamlReader -->
     <Item Title="versioner"
           Type="text">
+      1.1.0.0
+      - Ændret farven på links til den samme farve for alle (Mango farven) så det nu burde se ok ud for alle, uafhængigt af valgt farvetema.
+      
       1.0.0.0
       - Fixet mindre bug omkring forfatter navn på indlægssiden.
-      
+
       0.8.0.0
       - Tilføjet check for netværk i startup, da app'en jo ikke fungerer så godt uden.
       - Tilføjet "vis i browser" knap på siden der viser et indlæg. (Der kan være indlæg som indeholder elementer der ikke kan vises korrekt i selve app'en)
@@ -64,10 +67,10 @@
       - Ændre keyboardet til de forskellige felter på siden hvor man skriver en kommentar. Dette gør fx at man nu kan vælge smilies :)
       - Understøttelse af "Landskabs-mode"
       - På magiskvis fået en progressbar tilbage i toppen :)
-      
+
       0.7.0.0
       - [Bug fix] Billederne i indlæg åbner for nemt (hvis man scroller fx). Nu skal man "trykke" på dem før de åbner.
-      
+
       0.6.0.0
       - Ændret måden indlæg/kommentarer vises på. Nu er der ikke længere nogen pivot, men kommentarer står under indlægget. Giver mere plads til indhold.
       - System.Tray i toppen er ikke længere synlig, hvilket giver mere plads til indhold. Dog giver det også pt det problem at progressbaren i toppen heller ikke er synlig. Må finde en løsning.
