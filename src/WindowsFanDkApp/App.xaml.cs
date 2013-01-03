@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using AgFx;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Net.NetworkInformation;
+using Microsoft.Phone.Scheduler;
 using Microsoft.Phone.Shell;
 using WindowsFanDkApp.Common;
 
@@ -70,7 +71,59 @@ namespace WindowsFanDkApp
                 }
             };
 
+            StartPeriodicAgent();
+
             Thread.CurrentThread.CurrentCulture = new CultureInfo("da-DK");
+        }
+
+        private void StartPeriodicAgent()
+        {
+            // is old task running, remove it
+            var periodicTaskName = "Windowsfan.dk app Task";
+            var periodicTask = ScheduledActionService.Find(periodicTaskName) as PeriodicTask;
+            if (periodicTask != null)
+            {
+                try
+                {
+                    ScheduledActionService.Remove(periodicTaskName);
+                }
+                catch (Exception)
+                {
+                }
+            }
+            // create a new task
+            periodicTask = new PeriodicTask(periodicTaskName);
+            // load description from localized strings
+            periodicTask.Description = "This is LiveTile application update agent.";
+            // set expiration days
+            periodicTask.ExpirationTime = DateTime.Now.AddDays(14);
+            try
+            {
+                // add thas to scheduled action service
+                ScheduledActionService.Add(periodicTask);
+                // debug, so run in every 30 secs
+#if(DEBUG)
+		ScheduledActionService.LaunchForTest(periodicTaskName, TimeSpan.FromSeconds(5));
+		System.Diagnostics.Debug.WriteLine("Periodic task is started: " + periodicTaskName);
+#endif
+
+            }
+            catch (InvalidOperationException exception)
+            {
+                if (exception.Message.Contains("BNS Error: The action is disabled"))
+                {
+                    // load error text from localized strings
+                    MessageBox.Show("Background agents for this application have been disabled by the user.");
+                }
+                if (exception.Message.Contains("BNS Error: The maximum number of ScheduledActions of this type have already been added."))
+                {
+                    // No user action required. The system prompts the user when the hard limit of periodic tasks has been reached.
+                }
+            }
+            catch (SchedulerServiceException)
+            {
+                // No user action required.
+            }
         }
 
         // Code to execute when the application is launching (eg, from Start)

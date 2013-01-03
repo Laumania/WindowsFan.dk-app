@@ -225,6 +225,10 @@
       <Project>{84FE6C50-1140-4CB3-93F7-5B731BD11EC5}</Project>
       <Name>WindowsFanDkApp.Api</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WindowsFanDkApp.TaskAgent\WindowsFanDkApp.TaskAgent.csproj">
+      <Project>{E712C7C1-49A0-4016-979D-E5BED31D1BDE}</Project>
+      <Name>WindowsFanDkApp.TaskAgent</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />

@@ -10,6 +10,9 @@
     </Capabilities>
     <Tasks>
       <DefaultTask Name="_default" NavigationPage="Views/MainPageView.xaml" />
+      <ExtendedTask Name="BackgroundTask">
+        <BackgroundServiceAgent Specifier="ScheduledTaskAgent" Name="WindowsFanDkApp.TaskAgent" Source="WindowsFanDkApp.TaskAgent" Type="WindowsFanDkApp.TaskAgent.ScheduledAgent" />
+      </ExtendedTask>
     </Tasks>
     <Tokens>
       <PrimaryToken TokenID="WindowsFanDkAppToken" TaskName="_default">
