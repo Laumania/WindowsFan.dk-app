@@ -18,7 +18,7 @@
         </Style>
         <DataTemplate x:Key="PostListItemDataTemplate">
             <StackPanel VerticalAlignment="Stretch" Margin="12,0,12,48">
-                <Image Source="{Binding ThumbnailComputed, Converter={StaticResource ImageCacheConverter}}" MinHeight="150" MaxHeight="350" Stretch="None" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <Image Source="{Binding ThumbnailComputed, Converter={StaticResource ImageCacheConverter}}" MinHeight="150" MaxHeight="350" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 <Controls:HtmlTextBlock Html="{Binding Title}" FontSize="{StaticResource PhoneFontSizeMedium}" BorderThickness="0" FontWeight="Bold" Margin="-12,6" />
                 <Controls:HtmlTextBlock Html="{Binding Excerpt}" BorderThickness="0" Margin="-12,0"/>
                 <Grid Height="36" Margin="0,6,0,0">
