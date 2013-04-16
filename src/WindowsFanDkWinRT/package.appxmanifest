@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="WindowsFanDk" Version="1.0.0.0" Publisher="CN=IdeaNotion" />
+  <Properties>
+    <DisplayName>WindowsFanDk</DisplayName>
+    <Description>WindowsFan dk</Description>
+    <PublisherDisplayName>Laumania ApS</PublisherDisplayName>
+    <Logo>images\storelogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2.0</OSMinVersion>
+    <OSMaxVersionTested>6.2.0</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" StartPage="default.html">
+      <VisualElements DisplayName="Windowsfan.dk" Logo="images\logo.png" SmallLogo="images\smalllogo.png" Description="WindowsFan.dk er en nyheds/community side for Windows Phone og Windows 8 interesserede i Danmark. Idéen er at samle alle nyttige informationer, nyheder, guides osv. et sted, således at det er nemt at holde sig opdateret og få hjælp, som Windows Phone eller Windows 8 bruger i Danmark." ForegroundText="dark" BackgroundColor="#ffffff">
+        <DefaultTile ShowName="noLogos" WideLogo="images\widelogo.png" ShortName="Windowsfan.dk" />
+        <SplashScreen Image="images\splashscreen.png" BackgroundColor="#074667" />
+        <InitialRotationPreference>
+          <Rotation Preference="portrait" />
+          <Rotation Preference="landscape" />
+          <Rotation Preference="portraitFlipped" />
+          <Rotation Preference="landscapeFlipped" />
+        </InitialRotationPreference>
+      </VisualElements>
+      <Extensions>
+        <Extension Category="windows.search" />
+        <Extension Category="windows.backgroundTasks" StartPage="js\liveTileTask.js">
+          <BackgroundTasks>
+            <Task Type="systemEvent" />
+          </BackgroundTasks>
+        </Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>

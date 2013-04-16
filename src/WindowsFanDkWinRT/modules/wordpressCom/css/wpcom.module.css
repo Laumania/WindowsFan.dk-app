@@ -1,0 +1,35 @@
+﻿/* Import rules for GridView templates */
+@import url('templates/custom.css');
+
+/* @import url('templates/large.css'); */
+/* @import url('templates/wide.css'); */
+
+.wpc-title-count {
+    font-size: 11pt !important;
+}
+
+
+@media screen and (-ms-view-state: snapped) {    
+    .wpc-list .wpc-item {
+        height: 220px;
+        width: 100%;
+        -ms-grid-rows: 160px 60px;
+    }
+
+    .wpc-list .wpc-item .wpc-image-container .wpc-image{
+        height:160px;
+    }   
+
+    .wpc-list .win-vertical .win-item {
+        width: 100%;
+    }
+    .wpc-list .win-vertical .win-item .wpc-image-container .wpc-image {
+        width: 100%;
+    }
+        .wpc-list .win-vertical .win-item {
+        width: 100%;
+    }
+    .wpc-list .win-vertical .win-item .wpc-image-container .wpc-image {
+        width: 100%;
+    }
+}
