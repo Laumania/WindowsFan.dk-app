@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{A93DD0B2-734B-4281-9D21-9882705BAA20}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KawagoeToolkit", "Dependencies\Kawagoe.1.1\KawagoeToolkit\KawagoeToolkit.csproj", "{0CDD0FA7-D5A1-47F4-B874-9C7FE4CA9257}"
