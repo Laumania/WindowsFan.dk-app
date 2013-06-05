@@ -54,6 +54,10 @@
     <!-- Supported types are "text" and "xaml", where text is nicely formatted automatically, and XAML is handled by the built-in XamlReader -->
     <Item Title="versioner"
           Type="text">
+      1.2.0.0
+      - Opgraderet til seneste version af de forskellige NuGet packages der er brugt i app'en.
+      - Ændret style, sådan at indlægs billederne på startsiden nu altid fylder hele skærmen.
+      
       1.1.0.0
       - Ændret farven på links til den samme farve for alle (Mango farven) så det nu burde se ok ud for alle, uafhængigt af valgt farvetema.
       
